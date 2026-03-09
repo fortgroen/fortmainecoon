@@ -5,13 +5,114 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fort Maine Coon</title>
 <style>
-body { font-family: Arial, sans-serif; margin:0; background:#f8f6f3; color:#333; }
-header { background:#2e2a26; color:white; padding:40px 20px; text-align:center; }
-section { padding:40px 20px; max-width:900px; margin:auto; }
-h2 { color:#5a4634; }
-footer { background:#2e2a26; color:white; text-align:center; padding:20px; }
-button { background:#5a4634; color:white; padding:10px 20px; border:none; cursor:pointer; }
-button:hover { background:#3d2f23; }
+
+body{
+margin:0;
+font-family: "Helvetica Neue", Arial, sans-serif;
+background:#faf8f5;
+color:#333;
+line-height:1.6;
+}
+
+header{
+background:url("images/mainecoon-hero.jpg") center/cover no-repeat;
+height:60vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:white;
+}
+
+header h1{
+font-family: Georgia, serif;
+font-size:52px;
+letter-spacing:2px;
+margin:0;
+}
+
+header p{
+font-size:20px;
+opacity:0.9;
+}
+
+nav{
+background:white;
+padding:16px;
+text-align:center;
+box-shadow:0 2px 8px rgba(0,0,0,0.05);
+}
+
+nav a{
+margin:0 18px;
+text-decoration:none;
+color:#6b4f3b;
+font-weight:500;
+}
+
+section{
+max-width:1000px;
+margin:auto;
+padding:70px 20px;
+}
+
+h2{
+font-family: Georgia, serif;
+color:#6b4f3b;
+font-size:32px;
+margin-bottom:25px;
+}
+
+.cats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.cat-card{
+background:white;
+border-radius:10px;
+overflow:hidden;
+box-shadow:0 6px 18px rgba(0,0,0,0.08);
+}
+
+.cat-card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.cat-card h3{
+margin:15px;
+font-family: Georgia, serif;
+}
+
+.cat-card p{
+margin:0 15px 20px 15px;
+font-size:14px;
+}
+
+button{
+background:#6b4f3b;
+color:white;
+border:none;
+padding:12px 24px;
+border-radius:4px;
+cursor:pointer;
+}
+
+button:hover{
+background:#523c2c;
+}
+
+footer{
+background:#6b4f3b;
+color:white;
+text-align:center;
+padding:30px;
+margin-top:40px;
+}
+
 </style>
 </head>
 <body>
