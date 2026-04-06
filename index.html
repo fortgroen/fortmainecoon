@@ -129,7 +129,14 @@ footer{
     }
 }
     </style>
+    <!-- Lightbox2 CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
+</head>
     
+<body>
+
 <header>
 <h1>Fort Maine Coon</h1>
 <p>Passievolle Maine Coon Cattery in Sint-Truiden, België</p>
@@ -143,74 +150,56 @@ footer{
 <a href="#contact">Contact</a>
 </nav>
 
-<div class="hero" style="background:url('vierkantshoeve.jpg') center/cover no-repeat;"></div>
+<div class="hero"></div>
 
 <section id="over">
 <h2>Over onze cattery</h2>
 <p>Welkom bij Fort Maine Coon, een kleinschalige Maine Coon cattery gevestigd op onze authentieke vierkantshoeve.</p>
 <p>Wij zijn een gezin waar onze passie voor dieren en zorg centraal staat — als dierenarts en leerkracht combineren wij professionele kennis met een warme, huiselijke omgeving.</p>
-
 <p>Onze katten groeien op als volwaardige gezinsleden. Omdat wij thuisonderwijs geven aan onze kinderen, is er vrijwel altijd iemand thuis, waardoor onze katten en kittens voortdurend omringd zijn door aandacht, rust en dagelijkse interactie.</p>
 </section>
 
 <section id="visie">
 <h2>Onze levensstijl en visie</h2>
 <p>Bij Fort Maine Coon geloven wij in een verantwoorde en doordachte manier van fokken, waarbij gezondheid, welzijn en rastype centraal staan.</p>
-
 <p>Onze katten groeien op op onze authentieke vierkantshoeve, waar zij deel uitmaken van het dagelijkse gezinsleven. Ze hebben toegang tot de beschutte binnenkoer, waardoor ze op een veilige manier buitenprikkels kunnen ervaren. Deze omgeving, gecombineerd met een rustige en traditionele levensstijl, draagt bij aan hun evenwichtige en nieuwsgierige karakter.</p>
-
 <p>Omdat onze katten opgroeien tussen de activiteiten van het gezin en in het bijzijn van jonge kinderen, leren zij van jongs af aan omgaan met verschillende situaties en mensen. Dit helpt hen uit te groeien tot sociale, stabiele en aanhankelijke Maine Coons.</p>
-
 <p>Wij kiezen bewust voor een kleinschalige cattery, zodat elke kat en elk nest de tijd, aandacht en zorg krijgt die het verdient. Combinaties worden zorgvuldig gekozen met aandacht voor gezondheid, genetica, karakter en het behoud van het authentieke Maine Coon-type.</p>
-
 <p>Voor ons zijn onze katten in de eerste plaats geliefde huisdieren, en hun welzijn staat altijd voorop.</p>
 </section>
 
-<section id="cats">
+<section id="katten">
 <h2>Onze katten</h2>
 
 <div class="showcat">
-
-  <!-- Grote foto links -->
   <div class="showcat-img">
     <img src="Sansa1.jpg" alt="Naam kat">
   </div>
-
-  <!-- Info + extra foto's rechts -->
   <div class="showcat-info">
-
     <h3>Naam van de kat</h3>
-
     <div class="cat-details">
       <strong>Ras:</strong> Maine Coon<br>
       <strong>Kleur:</strong> black smoke & white bicolor<br>
-      <strong>Geboortedatum:</strong> 2025
-        <strong>Stamboom:</strong> <a href="https://www.pawpeds.com/db/?a=p&id=1805403&g=4&p=mco&o=elastic" target="_blank">Pawpeds</a>
+      <strong>Geboortedatum:</strong> 2025<br>
+      <strong>Stamboom:</strong> <a href="https://www.pawpeds.com/db/?a=p&id=1805403&g=4&p=mco&o=elastic" target="_blank">Pawpeds</a>
     </div>
 
-    <!-- Extra foto's galerij -->
+    <!-- Extra foto's galerij klikbaar -->
     <div class="extra-photos">
-      <img src="1.jpg" alt="Extra foto 1">
-      <img src="2.jpg" alt="Extra foto 2">
-      <img src="3.jpg" alt="Extra foto 3">
-        <img src="5.jpg" alt="Extra foto 4">
-        <img src="7.jpg" alt="Extra foto 5">
+      <a href="1.jpg" data-lightbox="katten" data-title="Extra foto 1"><img src="1.jpg" alt="Extra foto 1"></a>
+      <a href="2.jpg" data-lightbox="katten" data-title="Extra foto 2"><img src="2.jpg" alt="Extra foto 2"></a>
+      <a href="3.jpg" data-lightbox="katten" data-title="Extra foto 3"><img src="3.jpg" alt="Extra foto 3"></a>
+      <a href="5.jpg" data-lightbox="katten" data-title="Extra foto 4"><img src="5.jpg" alt="Extra foto 4"></a>
+      <a href="7.jpg" data-lightbox="katten" data-title="Extra foto 5"><img src="7.jpg" alt="Extra foto 5"></a>
     </div>
-
   </div>
-
 </div>
 </section>
-
 
 <section id="kittens">
 <h2>Kittens</h2>
 <h3>Geplande nestjes</h3>
-<p>
-Wij hopen in de nabije toekomst een nestje Maine Coon kittens te mogen verwelkomen.
-Zodra er meer informatie beschikbaar is, wordt deze hier gedeeld. Contacteer ons zeker, zo komt u al op de wachtlijst te staan.
-</p>
-<p>Onze kittens verhuizen:</p>
+<p>Wij hopen in de nabije toekomst een nestje Maine Coon kittens te mogen verwelkomen. Zodra er meer informatie beschikbaar is, wordt deze hier gedeeld. Contacteer ons zeker, zo komt u al op de wachtlijst te staan.</p>
 <ul>
   <li>Met officiële stamboom</li>
   <li>Gechipt</li>
@@ -219,32 +208,23 @@ Zodra er meer informatie beschikbaar is, wordt deze hier gedeeld. Contacteer ons
   <li>Met gezondheidscontrole door de dierenarts</li>
 </ul>
 <h3>Waarom wij werken met stambomen</h3>
-<p> Bij Fort Maine Coon worden al onze kittens verkocht met een officiële stamboom. Voor ons is dit een essentieel onderdeel van verantwoorde en transparante fokkerij.</p>
-<p>Een stamboom is namelijk veel meer dan enkel een document dat de afstamming van een kitten weergeeft. Het biedt inzicht in de genetische achtergrond van de kat en helpt fokkers om doordachte combinaties te maken en inteelt te beperken. 
-Door te werken met stambomen en de bijhorende gezondheidscontroles streven wij ernaar om Maine Coons te fokken die niet alleen voldoen aan de rasstandaard, maar vooral ook gezond en stabiel zijn.
-Een kitten zonder stamboom is daarom niet hetzelfde als een kitten mét stamboom. De stamboom staat voor controleerbare afkomst, gezondheidsonderzoek en verantwoord fokbeleid.</p>
-  
+<p>Bij Fort Maine Coon worden al onze kittens verkocht met een officiële stamboom. Dit is een essentieel onderdeel van verantwoorde en transparante fokkerij. Een stamboom biedt inzicht in de genetische achtergrond van de kat en helpt fokkers doordachte combinaties te maken en inteelt te beperken. Zo streven wij naar gezonde, stabiele en karaktervolle Maine Coons.</p>
 </section>
 
 <section id="contact">
 <h2>Contact</h2>
-<p>Heeft u interesse in een kitten van Fort Maine Coon? 
-Contacteer ons persoonlijk of vul onderstaand formulier in om op de wachtlijst te staan. We nemen zo snel mogelijk contact met u op.</p>
+<p>Heeft u interesse in een kitten van Fort Maine Coon? Contacteer ons persoonlijk of vul onderstaand formulier in om op de wachtlijst te staan. We nemen zo snel mogelijk contact met u op.</p>
 
 <form action="https://formspree.io/f/mkoqqjgw" method="POST">
-
 <label>Naam</label><br>
 <input type="text" name="naam" required><br><br>
-
 <label>Email</label><br>
 <input type="email" name="email" required><br><br>
-
 <label>Bericht</label><br>
 <textarea name="bericht" rows="5"></textarea><br><br>
-
 <button type="submit">Verstuur</button>
-
 </form>
+
 <p>Email: contact.fortgroen@gmail.com</p>
 <p>Telefoon: +32484850516</p>
 <p>Volg ons ook op sociale media.</p>
