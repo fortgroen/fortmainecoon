@@ -52,9 +52,7 @@ footer{
     margin-top:40px;
 }
 
-/* ========================= */
-/* SHOWCAT LAYOUT */
-/* ========================= */
+/* SHOWCAT layout blijft hetzelfde */
 .showcat{
     display:flex;
     gap:40px;
@@ -64,7 +62,7 @@ footer{
 }
 
 .showcat-img{
-    flex:0 0 320px; /* foto max 320px breed */
+    flex:0 0 320px;
 }
 
 .showcat-img img{
@@ -76,7 +74,7 @@ footer{
 }
 
 .showcat-info{
-    flex:1 1 300px; /* tekst vult de rest */
+    flex:1 1 300px;
     min-width:250px;
 }
 
@@ -90,7 +88,29 @@ footer{
     line-height:1.7;
 }
 
-/* RESPONSIVE MOBIEL */
+/* Extra foto's galerij */
+.extra-photos{
+    display:flex;
+    gap:10px;
+    margin-top:20px;
+    flex-wrap:wrap;
+}
+
+.extra-photos img{
+    width:100px;
+    height:100px;
+    object-fit:cover;
+    border-radius:8px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    cursor:pointer;
+    transition: transform 0.3s;
+}
+
+.extra-photos img:hover{
+    transform: scale(1.1);
+}
+
+/* MOBIEL: foto boven tekst */
 @media(max-width:768px){
     .showcat{
         flex-direction:column;
@@ -99,7 +119,7 @@ footer{
 
     .showcat-img{
         flex:0 0 auto;
-        width:80%; /* foto past op mobiel */
+        width:80%;
         margin-bottom:20px;
     }
 
@@ -108,10 +128,6 @@ footer{
         text-align:center;
     }
 }
-</style>
-</head>
-<body>
-
 <header>
 <h1>Fort Maine Coon</h1>
 <p>Passievolle Maine Coon Cattery in Sint-Truiden, België</p>
@@ -147,24 +163,43 @@ footer{
 
 <p>Voor ons zijn onze katten in de eerste plaats geliefde huisdieren, en hun welzijn staat altijd voorop.</p>
 </section>
-  
-<section id="katten">
+
+<section id="cats">
 <h2>Onze katten</h2>
+
 <div class="showcat">
-    <div class="showcat-img">
-        <img src="Sansa.jpeg" alt="Naam kat">
+
+  <!-- Grote foto links -->
+  <div class="showcat-img">
+    <img src="Sansa1.jpg" alt="Naam kat">
+  </div>
+
+  <!-- Info + extra foto's rechts -->
+  <div class="showcat-info">
+
+    <h3>Naam van de kat</h3>
+
+    <div class="cat-details">
+      <strong>Ras:</strong> Maine Coon<br>
+      <strong>Kleur:</strong> black smoke & white bicolor<br>
+      <strong>Geboortedatum:</strong> 2025
+        <strong>Stamboom:</strong> <a href="https://www.pawpeds.com/db/?a=p&id=1805403&g=4&p=mco&o=elastic" target="_blank">Pawpeds</a>
     </div>
-    <div class="showcat-info">
-        <h3>Sansa</h3>
-        <div class="cat-details">
-            <strong>Kleur:</strong> black smoke & white bicolor<br>
-            <strong>Geboortedatum:</strong> 2025<br>
-            <strong>Stamboom:</strong> <a href="https://www.pawpeds.com/db/?a=p&id=1805403&g=4&p=mco&o=elastic" target="_blank">Pawpeds</a>
-        </div>
-      
+
+    <!-- Extra foto's galerij -->
+    <div class="extra-photos">
+      <img src="1.jpg" alt="Extra foto 1">
+      <img src="2.jpg" alt="Extra foto 2">
+      <img src="3.jpg" alt="Extra foto 3">
+        <img src="5.jpg" alt="Extra foto 4">
+        <img src="7.jpg" alt="Extra foto 5">
     </div>
+
+  </div>
+
 </div>
 </section>
+
 
 <section id="kittens">
 <h2>Kittens</h2>
