@@ -3,62 +3,310 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fort Maine Coon</title>
+<title>Fort Maine Coon — Maine Coon Cattery in Sint-Truiden</title>
+<meta name="description" content="Fort Maine Coon is een kleinschalige, gezinsgerichte Maine Coon cattery in Sint-Truiden. Gezonde, sociale en stamboomgekeurde kittens.">
+<link rel="icon" type="image/png" href="favicon.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- Lightbox2 CSS & JS -->
+<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
+
 <style>
+/* ============ TOKENS ============ */
+:root{
+    --dark:#2f2a28;
+    --dark-soft:#433c39;
+    --cream:#faf8f6;
+    --card:#fffdfb;
+    --line:#e8e2dc;
+    --text:#333;
+    --muted:#766c64;
+    --gold:#8a6d3b;
+    --gold-light:#b08d56;
+    --radius:14px;
+    --shadow:0 10px 30px rgba(47,42,40,0.12);
+    --shadow-soft:0 6px 18px rgba(47,42,40,0.08);
+    --max:1080px;
+}
+
+*{box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
 body{
     margin:0;
-    font-family:Georgia,serif;
-    background:#faf8f6;
-    color:#333;
+    font-family:'Source Sans 3',Georgia,serif;
+    background:var(--cream);
+    color:var(--text);
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
 }
-header{
-    background:#2f2a28;
-    color:white;
-    padding:40px;
+
+h1,h2,h3{
+    font-family:'Playfair Display',Georgia,serif;
+    color:var(--dark);
+    margin:0 0 .4em;
+    letter-spacing:.2px;
+}
+
+h2{
+    font-size:clamp(28px,3.2vw,36px);
+    font-weight:600;
     text-align:center;
+    position:relative;
+    padding-bottom:22px;
+    margin-bottom:42px;
 }
-nav{
+
+/* signature arc-rule, echoes the arc behind the cat in the crest */
+h2::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:0;
+    width:70px;
+    height:14px;
+    transform:translateX(-50%);
+    border-bottom:2px solid var(--gold-light);
+    border-radius:50%;
+}
+
+h3{
+    font-size:22px;
+    font-weight:600;
+}
+
+a{color:var(--gold);}
+a:hover{color:var(--dark);}
+
+img{max-width:100%;}
+
+.eyebrow{
+    display:block;
+    text-align:center;
+    font-family:'Source Sans 3',sans-serif;
+    font-size:13px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+/* ============ HEADER / NAV ============ */
+.site-header{
+    background:var(--dark);
+    position:sticky;
+    top:0;
+    z-index:100;
+    box-shadow:0 2px 14px rgba(0,0,0,0.18);
+}
+
+.nav-wrap{
+    max-width:1240px;
+    margin:auto;
     display:flex;
-    justify-content:center;
-    gap:30px;
-    background:#e8e2dc;
-    padding:15px;
+    align-items:center;
+    justify-content:space-between;
+    padding:10px 24px;
 }
-nav a{
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
     text-decoration:none;
-    color:#333;
-    font-weight:bold;
+    color:#fff;
 }
+
+.brand img{
+    height:46px;
+    width:auto;
+    filter:invert(1) brightness(1.6);
+}
+
+.brand-text{
+    display:flex;
+    flex-direction:column;
+    line-height:1.15;
+}
+
+.brand-text strong{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:19px;
+    font-weight:600;
+    letter-spacing:.5px;
+}
+
+.brand-text span{
+    font-size:10.5px;
+    letter-spacing:1.8px;
+    text-transform:uppercase;
+    color:var(--gold-light);
+}
+
+nav.main-nav{
+    display:flex;
+    align-items:center;
+    gap:34px;
+}
+
+nav.main-nav a{
+    text-decoration:none;
+    color:#f1ece6;
+    font-family:'Source Sans 3',sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    letter-spacing:.3px;
+    position:relative;
+    padding:6px 0;
+}
+
+nav.main-nav a::after{
+    content:"";
+    position:absolute;
+    left:0;right:0;bottom:0;
+    height:2px;
+    background:var(--gold-light);
+    transform:scaleX(0);
+    transition:transform .25s ease;
+}
+
+nav.main-nav a:hover{color:#fff;}
+nav.main-nav a:hover::after{transform:scaleX(1);}
+
+.menu-toggle{
+    display:none;
+    background:none;
+    border:0;
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+}
+
+@media(max-width:860px){
+    nav.main-nav{
+        position:absolute;
+        top:100%;
+        left:0;right:0;
+        background:var(--dark-soft);
+        flex-direction:column;
+        align-items:flex-start;
+        padding:10px 24px 18px;
+        gap:14px;
+        display:none;
+    }
+    nav.main-nav.open{display:flex;}
+    .menu-toggle{display:block;}
+    .site-header{position:sticky;}
+}
+
+/* ============ HERO ============ */
 .hero{
-    height:60vh;
+    position:relative;
+    height:72vh;
+    min-height:430px;
     background:url('vierkantshoeve.jpg') center/cover no-repeat;
     display:flex;
     align-items:center;
     justify-content:center;
-    color:white;
-    font-size:40px;
-    text-shadow:0 2px 10px rgba(0,0,0,0.6);
-}
-section{
-    max-width:1000px;
-    margin:auto;
-    padding:60px 20px;
-}
-footer{
-    background:#2f2a28;
-    color:white;
-    text-align:center;
-    padding:30px;
-    margin-top:40px;
 }
 
-/* SHOWCAT layout blijft hetzelfde */
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.35) 45%,rgba(20,17,15,.65) 100%);
+}
+
+.hero-content{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    color:#fff;
+    padding:0 24px;
+    max-width:760px;
+}
+
+.hero-content .eyebrow{color:var(--gold-light);}
+
+.hero-content h1{
+    color:#fff;
+    font-size:clamp(34px,5.4vw,56px);
+    font-weight:700;
+    margin-bottom:14px;
+    text-shadow:0 3px 18px rgba(0,0,0,.4);
+}
+
+.hero-content p{
+    font-size:18px;
+    color:#f1ece6;
+    margin-bottom:30px;
+    text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+
+.btn{
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    text-decoration:none;
+    padding:14px 32px;
+    border-radius:999px;
+    font-family:'Source Sans 3',sans-serif;
+    font-weight:600;
+    font-size:14.5px;
+    letter-spacing:.4px;
+    border:1px solid var(--gold);
+    transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.btn:hover{
+    background:transparent;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.btn-outline{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.7);
+}
+
+.btn-outline:hover{
+    background:#fff;
+    color:var(--dark);
+    border-color:#fff;
+}
+
+/* ============ SECTIONS ============ */
+section{
+    max-width:var(--max);
+    margin:auto;
+    padding:84px 24px;
+}
+
+section#over, section#kittens{
+    background:var(--card);
+}
+
+.lede{
+    text-align:center;
+    max-width:680px;
+    margin:-18px auto 40px;
+    color:var(--muted);
+    font-size:17px;
+}
+
+/* ============ SHOWCAT layout ============ */
 .showcat{
     display:flex;
-    gap:40px;
+    gap:48px;
     align-items:flex-start;
     flex-wrap:wrap;
-    margin-top:40px;
+    margin-top:10px;
 }
 
 .showcat-img{
@@ -69,8 +317,9 @@ footer{
     width:100%;
     height:auto;
     display:block;
-    border-radius:12px;
-    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    border:6px solid #fff;
 }
 
 .showcat-info{
@@ -80,19 +329,23 @@ footer{
 
 .showcat-info h3{
     margin-top:0;
-    font-size:28px;
+    font-size:30px;
 }
 
 .cat-details{
     margin-top:15px;
-    line-height:1.7;
+    line-height:1.9;
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:18px 22px;
 }
 
 /* Extra foto's galerij */
 .extra-photos{
     display:flex;
     gap:10px;
-    margin-top:20px;
+    margin-top:22px;
     flex-wrap:wrap;
 }
 
@@ -103,54 +356,304 @@ footer{
     border-radius:8px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
     cursor:pointer;
-    transition: transform 0.3s;
+    transition: transform 0.25s ease, box-shadow .25s ease;
 }
 
 .extra-photos img:hover{
-    transform: scale(1.1);
+    transform: scale(1.08);
+    box-shadow:0 10px 22px rgba(0,0,0,0.18);
 }
 
-/* MOBIEL: foto boven tekst */
 @media(max-width:768px){
     .showcat{
         flex-direction:column;
         align-items:center;
     }
-
     .showcat-img{
         flex:0 0 auto;
         width:80%;
-        margin-bottom:20px;
+        margin-bottom:10px;
     }
-
     .showcat-info{
         flex:1 1 auto;
         text-align:center;
     }
+    .cat-details{text-align:left;}
 }
-    </style>
-    <!-- Lightbox2 CSS & JS -->
-<link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
 
+/* ============ KITTENS ============ */
+.kitten-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+    margin-top:10px;
+}
+
+.kitten-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:28px 26px;
+    box-shadow:var(--shadow-soft);
+}
+
+.kitten-card h3{
+    font-size:19px;
+    margin-bottom:14px;
+    color:var(--gold);
+}
+
+.kitten-card ul{
+    margin:0;
+    padding-left:18px;
+}
+
+.kitten-card li{margin-bottom:6px;}
+
+.litter-card{
+    grid-column:1/-1;
+    background:linear-gradient(135deg,#fff,#fbf6ef);
+    border:1px solid var(--line);
+}
+
+.color-tags{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin:14px 0 0;
+    padding:0;
+    list-style:none;
+}
+
+.color-tags li{
+    background:#fff;
+    border:1px solid var(--line);
+    border-radius:999px;
+    padding:5px 14px;
+    font-size:13.5px;
+    color:var(--dark);
+}
+
+@media(max-width:860px){
+    .kitten-grid{grid-template-columns:1fr;}
+}
+
+/* ============ CONTACT ============ */
+.contact-grid{
+    display:grid;
+    grid-template-columns:1.1fr .9fr;
+    gap:56px;
+    align-items:start;
+    margin-top:10px;
+}
+
+.contact-info-card{
+    background:var(--dark);
+    color:#f1ece6;
+    border-radius:var(--radius);
+    padding:36px 32px;
+}
+
+.contact-info-card h3{color:#fff;}
+
+.contact-row{
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+    margin-bottom:18px;
+    font-size:15px;
+}
+
+.contact-row svg{flex:0 0 18px; margin-top:3px; color:var(--gold-light);}
+
+.contact-row a{color:#f1ece6;text-decoration:none;}
+.contact-row a:hover{color:var(--gold-light);}
+
+.social-row{
+    display:flex;
+    gap:14px;
+    margin-top:24px;
+}
+
+.social-row a{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:38px;height:38px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff;
+    text-decoration:none;
+}
+
+.social-row a:hover{
+    background:var(--gold);
+    border-color:var(--gold);
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+}
+
+form label{
+    font-size:13.5px;
+    font-weight:600;
+    letter-spacing:.3px;
+    text-transform:uppercase;
+    color:var(--muted);
+}
+
+form input,form textarea{
+    width:100%;
+    padding:13px 16px;
+    border:1px solid var(--line);
+    border-radius:10px;
+    font-family:'Source Sans 3',sans-serif;
+    font-size:15px;
+    background:#fff;
+    color:var(--text);
+}
+
+form input:focus,form textarea:focus{
+    outline:none;
+    border-color:var(--gold-light);
+    box-shadow:0 0 0 3px rgba(176,141,86,0.18);
+}
+
+form button{
+    align-self:flex-start;
+    background:var(--gold);
+    color:#fff;
+    border:none;
+    padding:14px 34px;
+    border-radius:999px;
+    font-weight:600;
+    font-size:14.5px;
+    letter-spacing:.4px;
+    cursor:pointer;
+    transition:background .2s ease, transform .2s ease;
+}
+
+form button:hover{
+    background:var(--dark);
+    transform:translateY(-2px);
+}
+
+@media(max-width:860px){
+    .contact-grid{grid-template-columns:1fr;}
+}
+
+/* ============ FOOTER ============ */
+footer{
+    background:var(--dark);
+    color:#d9d2ca;
+    padding:60px 24px 28px;
+    margin-top:0;
+}
+
+.footer-inner{
+    max-width:1080px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    gap:40px;
+    flex-wrap:wrap;
+    text-align:left;
+}
+
+.footer-brand{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    flex:1 1 260px;
+}
+
+.footer-brand img{
+    height:62px;
+    filter:invert(1) brightness(1.6);
+}
+
+.footer-brand strong{
+    display:block;
+    font-family:'Playfair Display',Georgia,serif;
+    color:#fff;
+    font-size:20px;
+}
+
+.footer-brand span{
+    font-size:13px;
+    color:#a89e94;
+}
+
+.footer-links{
+    flex:1 1 160px;
+}
+
+.footer-links h4{
+    color:#fff;
+    font-size:14px;
+    letter-spacing:1.2px;
+    text-transform:uppercase;
+    margin:0 0 14px;
+}
+
+.footer-links a{
+    display:block;
+    color:#d9d2ca;
+    text-decoration:none;
+    font-size:14.5px;
+    margin-bottom:10px;
+}
+
+.footer-links a:hover{color:var(--gold-light);}
+
+.footer-bottom{
+    max-width:1080px;
+    margin:42px auto 0;
+    padding-top:22px;
+    border-top:1px solid rgba(255,255,255,.12);
+    text-align:center;
+    font-size:13px;
+    color:#a89e94;
+}
+</style>
 </head>
-    
+
 <body>
 
-<header>
-<h1>Fort Maine Coon</h1>
-<p>Passievolle Maine Coon Cattery in Sint-Truiden, België</p>
+<header class="site-header">
+  <div class="nav-wrap">
+    <a href="#" class="brand">
+      <img src="logo-icon.png" alt="Fort Maine Coon logo">
+      <span class="brand-text">
+        <strong>Fort Maine Coon</strong>
+        <span>Official Cattery</span>
+      </span>
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
+    <nav class="main-nav" id="mainNav">
+      <a href="#over">Over ons</a>
+      <a href="#visie">Onze visie</a>
+      <a href="#katten">Onze katten</a>
+      <a href="#kittens">Kittens</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
 </header>
-<div class="hero" style="background:url('vierkantshoeve.jpg') center/cover no-repeat;"></div>
-<nav>
-<a href="#over">Over ons</a>
-<a href="#visie">Onze visie</a>
-<a href="#katten">Onze katten</a>
-<a href="#kittens">Kittens</a>
-<a href="#contact">Contact</a>
-</nav>
+
+<div class="hero">
+  <div class="hero-content">
+    <span class="eyebrow">Sint-Truiden · België</span>
+    <h1>Fort Maine Coon</h1>
+    <p>Passievolle, kleinschalige Maine Coon cattery op een authentieke vierkantshoeve</p>
+    <a href="#contact" class="btn">Schrijf u in op de wachtlijst</a>
+  </div>
+</div>
 
 <section id="over">
+<span class="eyebrow">Wie wij zijn</span>
 <h2>Over onze cattery</h2>
 <p>Welkom bij Fort Maine Coon, een kleinschalige Maine Coon cattery gevestigd op onze authentieke vierkantshoeve.</p>
 <p>Wij zijn een gezin waar onze passie voor dieren en zorg centraal staat — als dierenarts en leerkracht combineren wij professionele kennis met een warme, huiselijke omgeving.</p>
@@ -158,6 +661,7 @@ footer{
 </section>
 
 <section id="visie">
+<span class="eyebrow">Onze aanpak</span>
 <h2>Onze levensstijl en visie</h2>
 <p>Bij Fort Maine Coon geloven wij in een verantwoorde en doordachte manier van fokken, waarbij gezondheid, welzijn en rastype centraal staan.</p>
 <p>Onze katten groeien op op onze authentieke vierkantshoeve, waar zij deel uitmaken van het dagelijkse gezinsleven. Ze hebben toegang tot de beschutte binnenkoer, waardoor ze op een veilige manier buitenprikkels kunnen ervaren. Deze omgeving, gecombineerd met een rustige en traditionele levensstijl, draagt bij aan hun evenwichtige en nieuwsgierige karakter.</p>
@@ -167,17 +671,18 @@ footer{
 </section>
 
 <section id="katten">
+<span class="eyebrow">Maak kennis</span>
 <h2>Onze katten</h2>
 
 <div class="showcat">
   <div class="showcat-img">
-    <img src="Sansa1.jpg" alt="Naam kat">
+    <img src="Sansa1.jpg" alt="Sansa, Maine Coon van Fort Maine Coon">
   </div>
   <div class="showcat-info">
     <h3>Sansa</h3>
     <div class="cat-details">
       <strong>Ras:</strong> Maine Coon<br>
-      <strong>Kleur:</strong> black smoke & white bicolor<br>
+      <strong>Kleur:</strong> black smoke &amp; white bicolor<br>
       <strong>Geboortedatum:</strong> 2025<br>
       <strong>Stamboom:</strong> <a href="https://www.pawpeds.com/db/?a=p&id=1805403&g=4&p=mco&o=elastic" target="_blank">Pawpeds</a>
     </div>
@@ -195,66 +700,145 @@ footer{
 </section>
 
 <section id="kittens">
+<span class="eyebrow">Binnenkort</span>
 <h2>Kittens</h2>
 
-<h3>Geplande nestjes</h3>
+<div class="kitten-grid">
 
-<div class="planned-litter">
-  <p>Wij verwachten EIND JUNI 2026 een nestje van:</p>
-  <ul>
-    <li><strong>Mama:</strong>Sansa van Maine Coon Valley</li>
-    <li><strong>Papa:</strong> <a href="https://www.cattocattery.com/male-cats" target="_blank">Master Yoda of Whitfreynick</a></li>
-  </ul>
-    <ul>Mogelijke kleurencombinaties: 
-           <li> n → zwart</li>
-           <li> ns → black smoke</li>
-           <li> a → blauw</li>
-           <li> as → blauw smoke</li>
-           <li> n 03 / 09 → zwart met wit</li>
-           <li> ns 03 / 09 → black smoke met wit</li>
-           <li> a 03 / 09 → blauw met wit</li>
-           <li> as 03 / 09 → blauw smoke met wit</li>
-        </ul>
-  <p>Zodra de kittens geboren zijn, wordt er meer informatie en foto’s toegevoegd. U kunt zich alvast inschrijven op de wachtlijst door <a href="#contact">hier te klikken</a>.</p>
+  <div class="kitten-card litter-card">
+    <h3>Geplande nestjes</h3>
+    <p>Wij verwachten <strong>eind juni 2026</strong> een nestje van:</p>
+    <ul>
+      <li><strong>Mama:</strong> Sansa van Maine Coon Valley</li>
+      <li><strong>Papa:</strong> <a href="https://www.cattocattery.com/male-cats" target="_blank">Master Yoda of Whitfreynick</a></li>
+    </ul>
+    <p style="margin-bottom:6px;"><strong>Mogelijke kleurencombinaties:</strong></p>
+    <ul class="color-tags">
+      <li>n — zwart</li>
+      <li>ns — black smoke</li>
+      <li>a — blauw</li>
+      <li>as — blauw smoke</li>
+      <li>n 03 / 09 — zwart met wit</li>
+      <li>ns 03 / 09 — black smoke met wit</li>
+      <li>a 03 / 09 — blauw met wit</li>
+      <li>as 03 / 09 — blauw smoke met wit</li>
+    </ul>
+    <p style="margin-top:18px;">Zodra de kittens geboren zijn, wordt er meer informatie en foto's toegevoegd. U kunt zich alvast inschrijven op de wachtlijst door <a href="#contact">hier te klikken</a>.</p>
+  </div>
+
+  <div class="kitten-card">
+    <h3>Wat u kunt verwachten</h3>
+    <ul>
+      <li>Met officiële stamboom</li>
+      <li>Gechipt</li>
+      <li>Correct gevaccineerd</li>
+      <li>Meerdere keren ontwormd</li>
+      <li>Met gezondheidscontrole door de dierenarts</li>
+    </ul>
+  </div>
+
+  <div class="kitten-card">
+    <h3>Waarom wij werken met stambomen</h3>
+    <p style="margin:0;">Al onze kittens worden verkocht met een officiële stamboom — essentieel voor verantwoorde en transparante fokkerij. Een stamboom geeft inzicht in de genetische achtergrond en helpt ons doordachte combinaties te maken en inteelt te beperken, zodat wij streven naar gezonde, stabiele en karaktervolle Maine Coons.</p>
+  </div>
+
 </div>
-<h3>Wat u kunt verwachten</h3>
-<ul>
-  <li>Met officiële stamboom</li>
-  <li>Gechipt</li>
-  <li>Correct gevaccineerd</li>
-  <li>Meerdere keren ontwormd</li>
-  <li>Met gezondheidscontrole door de dierenarts</li>
-</ul>
-
-<h3>Waarom wij werken met stambomen</h3>
-
-<p>Bij Fort Maine Coon worden al onze kittens verkocht met een officiële stamboom. Dit is een essentieel onderdeel van verantwoorde en transparante fokkerij. Een stamboom biedt inzicht in de genetische achtergrond van de kat en helpt fokkers doordachte combinaties te maken en inteelt te beperken. Zo streven wij naar gezonde, stabiele en karaktervolle Maine Coons.</p>
 </section>
 
 <section id="contact">
+<span class="eyebrow">Wij horen graag van u</span>
 <h2>Contact</h2>
-<p>Heeft u interesse in een kitten van Fort Maine Coon? Contacteer ons persoonlijk of vul onderstaand formulier in om op de wachtlijst te staan. We nemen zo snel mogelijk contact met u op.</p>
+<p class="lede">Heeft u interesse in een kitten van Fort Maine Coon? Contacteer ons persoonlijk of vul onderstaand formulier in om op de wachtlijst te staan. We nemen zo snel mogelijk contact met u op.</p>
 
-<form action="https://formspree.io/f/mkoqqjgw" method="POST">
-<label>Naam</label><br>
-<input type="text" name="naam" required><br><br>
-<label>Email</label><br>
-<input type="email" name="email" required><br><br>
-<label>Bericht</label><br>
-<textarea name="bericht" rows="5"></textarea><br><br>
-<button type="submit">Verstuur</button>
-</form>
+<div class="contact-grid">
 
-<p>Email: contact.fortgroen@gmail.com</p>
-<p>Telefoon: +32484850516</p>
-<p>Volg ons ook op sociale media.</p>
-<a href="https://www.facebook.com/profile.php?id=61579093524869" target="_blank">Facebook</a> |
-<a href="https://www.instagram.com/fortmainecoon/" target="_blank">Instagram</a>
+  <form action="https://formspree.io/f/mkoqqjgw" method="POST">
+    <div>
+      <label for="naam">Naam</label>
+      <input type="text" id="naam" name="naam" required>
+    </div>
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+    </div>
+    <div>
+      <label for="bericht">Bericht</label>
+      <textarea id="bericht" name="bericht" rows="5"></textarea>
+    </div>
+    <button type="submit">Verstuur</button>
+  </form>
+
+  <div class="contact-info-card">
+    <h3>Contactgegevens</h3>
+    <div class="contact-row">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>
+      <a href="mailto:contact.fortgroen@gmail.com">contact.fortgroen@gmail.com</a>
+    </div>
+    <div class="contact-row">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      <a href="tel:+32484850516">+32 484 85 05 16</a>
+    </div>
+    <div class="contact-row">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <span>Sint-Truiden, België</span>
+    </div>
+    <div class="social-row">
+      <a href="https://www.facebook.com/profile.php?id=61579093524869" target="_blank" aria-label="Facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+      <a href="https://www.instagram.com/fortmainecoon/" target="_blank" aria-label="Instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+      </a>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <footer>
-© 2026 Fort Maine Coon
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="logo-icon.png" alt="Fort Maine Coon logo">
+      <div>
+        <strong>Fort Maine Coon</strong>
+        <span>Official Cattery · Sint-Truiden</span>
+      </div>
+    </div>
+    <div class="footer-links">
+      <h4>Navigatie</h4>
+      <a href="#over">Over ons</a>
+      <a href="#visie">Onze visie</a>
+      <a href="#katten">Onze katten</a>
+      <a href="#kittens">Kittens</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-links">
+      <h4>Contact</h4>
+      <a href="mailto:contact.fortgroen@gmail.com">contact.fortgroen@gmail.com</a>
+      <a href="tel:+32484850516">+32 484 85 05 16</a>
+      <a href="https://www.facebook.com/profile.php?id=61579093524869" target="_blank">Facebook</a>
+      <a href="https://www.instagram.com/fortmainecoon/" target="_blank">Instagram</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 Fort Maine Coon — Sint-Truiden, België
+  </div>
 </footer>
+
+<script>
+const menuToggle = document.getElementById('menuToggle');
+const mainNav = document.getElementById('mainNav');
+menuToggle.addEventListener('click', () => {
+  const isOpen = mainNav.classList.toggle('open');
+  menuToggle.setAttribute('aria-expanded', isOpen);
+});
+mainNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mainNav.classList.remove('open');
+    menuToggle.setAttribute('aria-expanded', false);
+  });
+});
+</script>
 
 </body>
 </html>
