@@ -438,6 +438,105 @@ section#over, section#kittens{
     .kitten-grid{grid-template-columns:1fr;}
 }
 
+/* ============ KITTEN UPDATES (timeline) ============ */
+.updates-section{
+    margin-top:64px;
+}
+
+.updates-section > h3{
+    text-align:center;
+    font-size:24px;
+    margin-bottom:8px;
+}
+
+.updates-intro{
+    text-align:center;
+    color:var(--muted);
+    font-size:15px;
+    max-width:560px;
+    margin:0 auto 36px;
+}
+
+.updates-list{
+    display:flex;
+    flex-direction:column;
+    gap:34px;
+}
+
+.update-card{
+    background:var(--cream);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:30px 32px;
+    box-shadow:var(--shadow-soft);
+    position:relative;
+}
+
+.update-meta{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+    flex-wrap:wrap;
+}
+
+.update-date{
+    display:inline-block;
+    background:var(--gold);
+    color:#fff;
+    font-size:12.5px;
+    font-weight:600;
+    letter-spacing:.4px;
+    padding:5px 14px;
+    border-radius:999px;
+}
+
+.update-card h4{
+    font-family:'Playfair Display',Georgia,serif;
+    font-size:21px;
+    font-weight:600;
+    color:var(--dark);
+    margin:0;
+}
+
+.update-text{
+    color:var(--text);
+    margin:0 0 18px;
+}
+
+.update-photos{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
+    gap:10px;
+}
+
+.update-photos img{
+    width:100%;
+    height:130px;
+    object-fit:cover;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    cursor:pointer;
+    display:block;
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.update-photos img:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 22px rgba(0,0,0,0.18);
+}
+
+.updates-empty{
+    text-align:center;
+    color:var(--muted);
+    font-style:italic;
+    padding:20px 0;
+}
+
+@media(max-width:600px){
+    .update-card{padding:24px 20px;}
+}
+
 /* ============ CONTACT ============ */
 .contact-grid{
     display:grid;
@@ -700,14 +799,14 @@ footer{
 </section>
 
 <section id="kittens">
-<span class="eyebrow">Binnenkort</span>
+<span class="eyebrow">Nieuw</span>
 <h2>Kittens</h2>
 
 <div class="kitten-grid">
 
   <div class="kitten-card litter-card">
-    <h3>Geplande nestjes</h3>
-    <p>Wij verwachten <strong>eind juni 2026</strong> een nestje van:</p>
+    <h3>Nestje geboren</h3>
+    <p>Het nestje is geboren uit:</p>
     <ul>
       <li><strong>Mama:</strong> Sansa van Maine Coon Valley</li>
       <li><strong>Papa:</strong> <a href="https://www.cattocattery.com/male-cats" target="_blank">Master Yoda of Whitfreynick</a></li>
@@ -723,7 +822,7 @@ footer{
       <li>a 03 / 09 — blauw met wit</li>
       <li>as 03 / 09 — blauw smoke met wit</li>
     </ul>
-    <p style="margin-top:18px;">Zodra de kittens geboren zijn, wordt er meer informatie en foto's toegevoegd. U kunt zich alvast inschrijven op de wachtlijst door <a href="#contact">hier te klikken</a>.</p>
+    <p style="margin-top:18px;">Bekijk de <a href="#updatesList">laatste updates en foto's</a> hieronder voor het laatste nieuws over de kittens. U kunt zich inschrijven op de wachtlijst door <a href="#contact">hier te klikken</a>.</p>
   </div>
 
   <div class="kitten-card">
@@ -743,6 +842,15 @@ footer{
   </div>
 
 </div>
+
+<div class="updates-section">
+  <h3>Laatste updates</h3>
+  <p class="updates-intro">Volg hier de groei van het nestje: nieuwe foto's en nieuwtjes worden regelmatig toegevoegd.</p>
+  <div class="updates-list" id="updatesList">
+    <!-- wordt automatisch gevuld via JavaScript, zie KITTEN_UPDATES onderaan de pagina -->
+  </div>
+</div>
+
 </section>
 
 <section id="contact">
@@ -838,6 +946,66 @@ mainNav.querySelectorAll('a').forEach(link => {
     menuToggle.setAttribute('aria-expanded', false);
   });
 });
+</script>
+
+<!-- ========================================================================
+     KITTEN-UPDATES — DIT IS HET ENIGE GEDEELTE DAT U MOET AANPASSEN
+     ========================================================================
+     Hieronder staat een lijstje van updates. Om een nieuwe update toe te
+     voegen, kopieer je gewoon één van de { ... } blokken hieronder, plak je
+     hem bovenaan de lijst (vlak na "const KITTEN_UPDATES = [") en pas je de
+     gegevens aan. De website doet de rest: opmaak, volgorde en foto-overzicht
+     gebeuren automatisch.
+
+     Let op bij het invullen:
+     - date:   de datum die getoond wordt, bv. "3 juli 2026"
+     - title:  een korte titel, bv. "De kittens zijn geboren!"
+     - text:   een kort stukje tekst (mag leeg blijven: "")
+     - photos: een lijstje van bestandsnamen tussen vierkante haken,
+               gescheiden door een komma. Zet de foto's gewoon in dezelfde
+               map als index.html en typ hier de bestandsnaam.
+
+     De BOVENSTE update in de lijst verschijnt als eerste (nieuwste boven).
+     ======================================================================== -->
+<script>
+const KITTEN_UPDATES = [
+  // -- Voorbeeld-update — vervang of verwijder dit blokje --
+  // {
+  //   date: "3 juli 2026",
+  //   title: "De kittens zijn geboren!",
+  //   text: "Sansa beviel van vier gezonde kittens: twee black smoke en twee blauw. Iedereen maakt het goed.",
+  //   photos: ["kittens-geboorte-1.jpg", "kittens-geboorte-2.jpg", "kittens-geboorte-3.jpg"]
+  // },
+];
+
+function renderKittenUpdates(){
+  const list = document.getElementById('updatesList');
+  if(!KITTEN_UPDATES.length){
+    list.innerHTML = '<p class="updates-empty">Er zijn nog geen updates — zodra de kittens er zijn, verschijnt hier het laatste nieuws.</p>';
+    return;
+  }
+
+  list.innerHTML = KITTEN_UPDATES.map((update, i) => {
+    const photosHtml = (update.photos || []).map((src, j) => `
+      <a href="${src}" data-lightbox="update-${i}" data-title="${update.title} — foto ${j+1}">
+        <img src="${src}" alt="${update.title} — foto ${j+1}" loading="lazy">
+      </a>
+    `).join('');
+
+    return `
+      <article class="update-card">
+        <div class="update-meta">
+          <span class="update-date">${update.date}</span>
+          <h4>${update.title}</h4>
+        </div>
+        ${update.text ? `<p class="update-text">${update.text}</p>` : ''}
+        ${photosHtml ? `<div class="update-photos">${photosHtml}</div>` : ''}
+      </article>
+    `;
+  }).join('');
+}
+
+renderKittenUpdates();
 </script>
 
 </body>
