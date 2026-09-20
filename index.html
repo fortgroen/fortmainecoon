@@ -213,27 +213,41 @@ nav.main-nav a:hover::after{transform:scaleX(1);}
     .site-header{position:sticky;}
 }
 
-/* ============ HERO ============ */
+/* ============ HERO SLIDESHOW ============ */
 .hero{
     position:relative;
     height:72vh;
     min-height:430px;
-    background:url('vierkantshoeve.jpg') center/cover no-repeat;
+    overflow:hidden;
     display:flex;
     align-items:center;
     justify-content:center;
 }
 
-.hero::before{
-    content:"";
+.slide{
+    position:absolute;
+    inset:0;
+    background-size:cover;
+    background-position:center;
+    opacity:0;
+    transition:opacity 1.2s ease-in-out;
+    z-index:0;
+}
+
+.slide.active{
+    opacity:1;
+}
+
+.hero-overlay{
     position:absolute;
     inset:0;
     background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.35) 45%,rgba(20,17,15,.65) 100%);
+    z-index:1;
 }
 
 .hero-content{
     position:relative;
-    z-index:1;
+    z-index:2;
     text-align:center;
     color:#fff;
     padding:0 24px;
@@ -255,6 +269,32 @@ nav.main-nav a:hover::after{transform:scaleX(1);}
     color:#f1ece6;
     margin-bottom:30px;
     text-shadow:0 2px 10px rgba(0,0,0,.35);
+}
+
+/* Navigatiepuntjes */
+.slide-dots{
+    position:absolute;
+    bottom:22px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:8px;
+    z-index:3;
+}
+
+.slide-dot{
+    width:8px;height:8px;
+    border-radius:50%;
+    background:rgba(255,255,255,0.45);
+    border:none;
+    cursor:pointer;
+    padding:0;
+    transition:background .3s ease, transform .3s ease;
+}
+
+.slide-dot.active{
+    background:#fff;
+    transform:scale(1.3);
 }
 
 .btn{
@@ -855,7 +895,19 @@ footer{
   <span class="paw">🐾</span>
 </div>
 
-<div class="hero">
+<div class="hero" id="heroSlideshow">
+  <!-- Slideshow achtergronden -->
+  <div class="slide active" style="background-image:url('Sansa1.jpg')"></div>
+  <div class="slide" style="background-image:url('1.jpg')"></div>
+  <div class="slide" style="background-image:url('2.jpg')"></div>
+  <div class="slide" style="background-image:url('3.jpg')"></div>
+  <div class="slide" style="background-image:url('5.jpg')"></div>
+  <div class="slide" style="background-image:url('7.jpg')"></div>
+
+  <!-- Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Inhoud -->
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
@@ -866,24 +918,24 @@ footer{
     <p>Passievolle, kleinschalige Maine Coon cattery op een authentieke vierkantshoeve</p>
     <a href="#contact" class="btn">Schrijf u in op de wachtlijst</a>
   </div>
+
+  <!-- Navigatiepuntjes -->
+  <div class="slide-dots" id="slideDots"></div>
 </div>
 
 <section id="over">
 <span class="eyebrow">Wie wij zijn</span>
 <h2>Over onze cattery</h2>
-<p>Welkom bij Fort Maine Coon, een kleinschalige Maine Coon cattery gevestigd op onze authentieke vierkantshoeve.</p>
-<p>Wij zijn een gezin waar onze passie voor dieren en zorg centraal staat — als dierenarts en leerkracht combineren wij professionele kennis met een warme, huiselijke omgeving.</p>
-<p>Onze katten groeien op als volwaardige gezinsleden. Omdat wij thuisonderwijs geven aan onze kinderen, is er vrijwel altijd iemand thuis, waardoor onze katten en kittens voortdurend omringd zijn door aandacht, rust en dagelijkse interactie.</p>
+<p>Welkom bij Fort Maine Coon. Wij zijn een gezin waar passie voor dieren en zorg centraal staat — als dierenarts en leerkracht combineren wij professionele kennis met een warme, huiselijke omgeving.</p>
+<p>Omdat wij thuisonderwijs geven aan onze kinderen, is er vrijwel altijd iemand thuis. Onze katten en kittens groeien op als volwaardige gezinsleden, voortdurend omringd door aandacht, rust en dagelijkse interactie.</p>
 </section>
 
 <section id="visie">
 <span class="eyebrow">Onze aanpak</span>
 <h2>Onze levensstijl en visie</h2>
 <p>Bij Fort Maine Coon geloven wij in een verantwoorde en doordachte manier van fokken, waarbij gezondheid, welzijn en rastype centraal staan.</p>
-<p>Onze katten groeien op op onze authentieke vierkantshoeve, waar zij deel uitmaken van het dagelijkse gezinsleven. Ze hebben toegang tot de beschutte binnenkoer, waardoor ze op een veilige manier buitenprikkels kunnen ervaren. Deze omgeving, gecombineerd met een rustige en traditionele levensstijl, draagt bij aan hun evenwichtige en nieuwsgierige karakter.</p>
-<p>Omdat onze katten opgroeien tussen de activiteiten van het gezin en in het bijzijn van jonge kinderen, leren zij van jongs af aan omgaan met verschillende situaties en mensen. Dit helpt hen uit te groeien tot sociale, stabiele en aanhankelijke Maine Coons.</p>
-<p>Wij kiezen bewust voor een kleinschalige cattery, zodat elke kat en elk nest de tijd, aandacht en zorg krijgt die het verdient. Combinaties worden zorgvuldig gekozen met aandacht voor gezondheid, genetica, karakter en het behoud van het authentieke Maine Coon-type.</p>
-<p>Voor ons zijn onze katten in de eerste plaats geliefde huisdieren, en hun welzijn staat altijd voorop.</p>
+<p>Onze katten hebben toegang tot de beschutte binnenkoer van de hoeve, waardoor ze op een veilige manier buitenprikkels kunnen ervaren. Deze omgeving, gecombineerd met een rustige en traditionele levensstijl, draagt bij aan hun evenwichtige en nieuwsgierige karakter.</p>
+<p>Wij kiezen bewust voor een kleinschalige cattery, zodat elke kat en elk nest de tijd, aandacht en zorg krijgt die het verdient. Voor ons zijn onze katten in de eerste plaats geliefde huisdieren, en hun welzijn staat altijd voorop.</p>
 </section>
 
 <section id="katten">
@@ -923,8 +975,8 @@ footer{
 <p class="lede">Een kitten van Fort Maine Coon is meer dan een aankoop — het is het begin van een bijzondere band met een dier dat opgroeide in het hart van ons gezin.</p>
 
 <div class="kitten-intro">
-  <p>Onze kittens worden groot op onze vierkantshoeve in Sint-Truiden, omringd door mensen, kinderen en het ritme van het dagelijkse gezinsleven. Dit legt de basis voor de sociale en aanhankelijke karakters waarvoor de Maine Coon bekend staat.</p>
-  <p>Elk kitten vertrekt pas wanneer het daar klaar voor is: minimaal 12 weken oud, gevaccineerd, ontwormd en met officiële stamboom. Wij plannen altijd een persoonlijk kennismakingsbezoek voor de overdracht — zodat u uw kitten leert kennen en wij u goed kunnen begeleiden bij de overgang naar het nieuwe thuis.</p>
+  <p>Onze kittens leren van jongs af aan omgaan met mensen, kinderen en dagelijkse situaties — de basis voor de sociale, stabiele karakters waarvoor de Maine Coon bekend staat. Elk kitten vertrekt pas wanneer het daar klaar voor is: minimaal 12 weken oud, gevaccineerd, ontwormd en met officiële stamboom.</p>
+  <p>Wij plannen altijd een persoonlijk kennismakingsbezoek voor de overdracht, zodat u uw kitten leert kennen in zijn vertrouwde omgeving en wij u goed kunnen begeleiden bij de overgang naar het nieuwe thuis.</p>
 </div>
 
 <div class="kitten-grid" style="margin-top:48px;">
@@ -942,7 +994,8 @@ footer{
 
   <div class="kitten-card">
     <h3>Waarom wij werken met stambomen</h3>
-    <p style="margin:0;">Al onze kittens worden verkocht met een officiële stamboom — essentieel voor verantwoorde en transparante fokkerij. Een stamboom geeft inzicht in de genetische achtergrond en helpt ons doordachte combinaties te maken en inteelt te beperken, zodat wij streven naar gezonde, stabiele en karaktervolle Maine Coons.</p>
+    <p>Al onze kittens worden verkocht met een officiële stamboom van de BCF (Belgian Cat Fanciers). Dit is voor ons geen formaliteit — het is een bewuste keuze met verregaande gevolgen.</p>
+    <p style="margin:0;">Door stambomen aan te vragen bij een erkende stamboekvereniging zijn wij verplicht een goedgekeurd fokprogramma te volgen. Dat betekent strikte regels rond gezondheidsonderzoeken, inteeltbeperking, minimumleeftijd bij overdracht en welzijn van de dieren. Een stamboom is dus niet alleen een bewijs van afstamming — het is een garantie dat uw kitten gefokt werd binnen een kader van transparantie en verantwoordelijkheid.</p>
   </div>
 
   <div class="kitten-card">
@@ -967,7 +1020,7 @@ footer{
 
   <div class="kitten-card" style="grid-column:1/-1; text-align:center;">
     <h3>Volgend nestje — vroeg voorjaar 2027</h3>
-    <p style="margin-bottom:18px;">Wij plannen ons volgend nestje voor het <strong>vroege voorjaar 2027</strong>. Combinaties worden zorgvuldig gekozen met aandacht voor gezondheid, genetica en rastype. Schrijf u alvast in op de wachtlijst — wij nemen zo snel mogelijk contact op.</p>
+    <p style="margin-bottom:18px;">Wij plannen ons volgend nestje voor het <strong>vroege voorjaar 2027</strong>. Schrijf u alvast in op de wachtlijst — wij nemen zo snel mogelijk contact op.</p>
     <a href="#contact" class="btn" style="background:var(--gold);color:#fff;padding:13px 30px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;">Schrijf u in op de wachtlijst</a>
   </div>
 
@@ -1101,6 +1154,40 @@ mainNav.querySelectorAll('a').forEach(link => {
     menuToggle.setAttribute('aria-expanded', false);
   });
 });
+
+/* ============ SLIDESHOW ============ */
+const slides = document.querySelectorAll('.slide');
+const dotsContainer = document.getElementById('slideDots');
+let current = 0;
+let timer;
+
+// Maak navigatiepuntjes aan
+slides.forEach((_, i) => {
+  const dot = document.createElement('button');
+  dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+  dot.setAttribute('aria-label', 'Foto ' + (i + 1));
+  dot.addEventListener('click', () => goTo(i));
+  dotsContainer.appendChild(dot);
+});
+
+function goTo(n){
+  slides[current].classList.remove('active');
+  dotsContainer.children[current].classList.remove('active');
+  current = (n + slides.length) % slides.length;
+  slides[current].classList.add('active');
+  dotsContainer.children[current].classList.add('active');
+}
+
+function next(){ goTo(current + 1); }
+
+function startTimer(){ timer = setInterval(next, 5000); }
+function resetTimer(){ clearInterval(timer); startTimer(); }
+
+startTimer();
+
+// Pauzeer bij hover
+document.getElementById('heroSlideshow').addEventListener('mouseenter', () => clearInterval(timer));
+document.getElementById('heroSlideshow').addEventListener('mouseleave', startTimer);
 </script>
 
 <!-- ========================================================================
