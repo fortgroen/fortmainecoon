@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="nl">
 <head>
 <meta charset="UTF-8">
@@ -446,7 +446,46 @@ section#over, section#kittens{
     .kitten-grid{grid-template-columns:1fr;}
 }
 
-/* ============ KITTEN UPDATES (timeline) ============ */
+/* ============ KITTEN BIJ ONS ============ */
+.kitten-intro{
+    max-width:780px;
+    margin:0 auto 12px;
+    font-size:16px;
+    line-height:1.85;
+    color:var(--text);
+}
+
+.kitten-intro p{margin:0 0 16px;}
+.kitten-intro p:last-child{margin:0;}
+
+/* ============ KITTEN FOTOGALERIJ ============ */
+.kitten-gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+    gap:10px;
+    margin-top:10px;
+}
+
+.kitten-gallery img{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.1);
+    cursor:pointer;
+    display:block;
+    transition:transform .25s ease, box-shadow .25s ease;
+}
+
+.kitten-gallery img:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 22px rgba(0,0,0,0.18);
+}
+
+@media(max-width:600px){
+    .kitten-gallery{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));}
+    .kitten-gallery img{height:110px;}
+}
 .updates-section{
     margin-top:64px;
 }
@@ -802,7 +841,9 @@ footer{
       <a href="#over">Over ons</a>
       <a href="#visie">Onze visie</a>
       <a href="#katten">Onze katten</a>
-      <a href="#kittens">Kittens</a>
+      <a href="#kitten-bij-ons">Een kitten bij ons</a>
+      <a href="#actueel">Actueel</a>
+      <a href="#fotos">Foto's</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -810,7 +851,7 @@ footer{
 
 <div class="announcement-bar">
   <span class="paw">🐾</span>
-  Het nestje is geboren! Bekijk de <a href="#kittens">laatste updates en foto's</a> van de kittens.
+  Ons eerste nestje is vertrokken — volgend nestje gepland voor vroeg voorjaar 2027. <a href="#contact">Schrijf u in op de wachtlijst.</a>
   <span class="paw">🐾</span>
 </div>
 
@@ -818,7 +859,7 @@ footer{
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
-      Nestje geboren — updates beschikbaar
+      Nestje vroeg voorjaar 2027 — wachtlijst open
     </div>
     <span class="eyebrow">Sint-Truiden · België</span>
     <h1>Fort Maine Coon</h1>
@@ -874,37 +915,24 @@ footer{
 </div>
 </section>
 
-<section id="kittens">
-<span class="eyebrow">Nieuw</span>
-<h2>Kittens</h2>
+<!-- EEN KITTEN BIJ ONS — altijd zichtbaar -->
+<section id="kitten-bij-ons" style="background:var(--card);">
+<span class="eyebrow">Wat u mag verwachten</span>
+<h2>Een kitten bij ons</h2>
 
-<div class="kitten-grid">
+<p class="lede">Een kitten van Fort Maine Coon is meer dan een aankoop — het is het begin van een bijzondere band met een dier dat opgroeide in het hart van ons gezin.</p>
 
-  <div class="kitten-card litter-card">
-    <h3>Nestje geboren</h3>
-    <p>Het nestje is geboren uit:</p>
-    <ul>
-      <li><strong>Mama:</strong> Sansa van Maine Coon Valley</li>
-      <li><strong>Papa:</strong> <a href="https://www.cattocattery.com/male-cats" target="_blank">Master Yoda of Whitfreynick</a></li>
-    </ul>
-    <p style="margin-bottom:6px;"><strong>Mogelijke kleurencombinaties:</strong></p>
-    <ul class="color-tags">
-      <li>n — zwart</li>
-      <li>ns — black smoke</li>
-      <li>a — blauw</li>
-      <li>as — blauw smoke</li>
-      <li>n 03 / 09 — zwart met wit</li>
-      <li>ns 03 / 09 — black smoke met wit</li>
-      <li>a 03 / 09 — blauw met wit</li>
-      <li>as 03 / 09 — blauw smoke met wit</li>
-    </ul>
-    <p style="margin-top:18px;">Bekijk de <a href="#updatesList">laatste updates en foto's</a> hieronder voor het laatste nieuws over de kittens. U kunt zich inschrijven op de wachtlijst door <a href="#contact">hier te klikken</a>.</p>
-  </div>
+<div class="kitten-intro">
+  <p>Onze kittens worden groot op onze vierkantshoeve in Sint-Truiden, omringd door mensen, kinderen en het ritme van het dagelijkse gezinsleven. Dit legt de basis voor de sociale en aanhankelijke karakters waarvoor de Maine Coon bekend staat.</p>
+  <p>Elk kitten vertrekt pas wanneer het daar klaar voor is: minimaal 12 weken oud, gevaccineerd, ontwormd en met officiële stamboom. Wij plannen altijd een persoonlijk kennismakingsbezoek voor de overdracht — zodat u uw kitten leert kennen en wij u goed kunnen begeleiden bij de overgang naar het nieuwe thuis.</p>
+</div>
+
+<div class="kitten-grid" style="margin-top:48px;">
 
   <div class="kitten-card">
     <h3>Wat u kunt verwachten</h3>
     <ul>
-      <li>Met officiële stamboom</li>
+      <li>Met officiële stamboom (BCF)</li>
       <li>Gechipt</li>
       <li>Correct gevaccineerd</li>
       <li>Meerdere keren ontwormd</li>
@@ -917,13 +945,64 @@ footer{
     <p style="margin:0;">Al onze kittens worden verkocht met een officiële stamboom — essentieel voor verantwoorde en transparante fokkerij. Een stamboom geeft inzicht in de genetische achtergrond en helpt ons doordachte combinaties te maken en inteelt te beperken, zodat wij streven naar gezonde, stabiele en karaktervolle Maine Coons.</p>
   </div>
 
-</div>
+  <div class="kitten-card">
+    <h3>Persoonlijk contact</h3>
+    <p style="margin:0;">Wij staan altijd open voor vragen — voor, tijdens en na de overdracht. U bent altijd welkom om uw kitten te komen bezoeken voor de overdracht, en wij volgen graag mee hoe uw Maine Coon opgroeit in zijn nieuwe thuis.</p>
+  </div>
 
-<div class="updates-section">
-  <h3>Laatste updates</h3>
-  <p class="updates-intro">Volg hier de groei van het nestje: nieuwe foto's en nieuwtjes worden regelmatig toegevoegd.</p>
-  <div class="updates-list" id="updatesList">
-    <!-- wordt automatisch gevuld via JavaScript, zie KITTEN_UPDATES onderaan de pagina -->
+</div>
+</section>
+
+<!-- ACTUEEL — pas deze sectie aan per fase -->
+<section id="actueel">
+<span class="eyebrow">Actueel</span>
+<h2>Actueel</h2>
+<div class="kitten-grid">
+
+  <div class="kitten-card litter-card" style="grid-column:1/-1;">
+    <h3>Ons eerste nestje is vertrokken 🐾</h3>
+    <p>Alle zeven kittens van ons eerste nestje (Sansa × <a href="https://www.cattocattery.com/male-cats" target="_blank">Master Yoda of Whitfreynick</a>, geboren 27 juni 2026) zijn inmiddels naar hun nieuwe thuis vertrokken. We zijn ontzettend blij met de mooie families die ze hebben gekregen!</p>
+    <p>Bekijk de foto's van hun eerste weken <a href="#fotos">hier</a>.</p>
+  </div>
+
+  <div class="kitten-card" style="grid-column:1/-1; text-align:center;">
+    <h3>Volgend nestje — vroeg voorjaar 2027</h3>
+    <p style="margin-bottom:18px;">Wij plannen ons volgend nestje voor het <strong>vroege voorjaar 2027</strong>. Combinaties worden zorgvuldig gekozen met aandacht voor gezondheid, genetica en rastype. Schrijf u alvast in op de wachtlijst — wij nemen zo snel mogelijk contact op.</p>
+    <a href="#contact" class="btn" style="background:var(--gold);color:#fff;padding:13px 30px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;">Schrijf u in op de wachtlijst</a>
+  </div>
+
+</div>
+</section>
+
+<!-- FOTO'S — groeit mee na elk nestje -->
+<section id="fotos" style="background:var(--card);">
+<span class="eyebrow">Terugblik</span>
+<h2>Foto's</h2>
+
+<div class="updates-section" style="margin-top:0;">
+  <h3>Nestje 2026 — Sansa × Master Yoda</h3>
+  <p class="updates-intro">De eerste weken van ons eerste nestje.</p>
+  <div class="kitten-gallery">
+    <a href="kittens-geboorte-1.jpg" data-lightbox="nestje2026" data-title="De kittens zijn geboren!"><img src="kittens-geboorte-1.jpg" alt="Geboorte" loading="lazy"></a>
+    <a href="Sansa (2).jpeg" data-lightbox="nestje2026" data-title="Week 2"><img src="Sansa (2).jpeg" alt="Week 2" loading="lazy"></a>
+    <a href="K1.jpeg" data-lightbox="nestje2026" data-title="Kitten 1"><img src="K1.jpeg" alt="Kitten 1" loading="lazy"></a>
+    <a href="K2.jpeg" data-lightbox="nestje2026" data-title="Kitten 2"><img src="K2.jpeg" alt="Kitten 2" loading="lazy"></a>
+    <a href="K3.jpeg" data-lightbox="nestje2026" data-title="Kitten 3"><img src="K3.jpeg" alt="Kitten 3" loading="lazy"></a>
+    <a href="K4.jpeg" data-lightbox="nestje2026" data-title="Kitten 4"><img src="K4.jpeg" alt="Kitten 4" loading="lazy"></a>
+    <a href="K5.jpeg" data-lightbox="nestje2026" data-title="Kitten 5"><img src="K5.jpeg" alt="Kitten 5" loading="lazy"></a>
+    <a href="K6.jpeg" data-lightbox="nestje2026" data-title="Kitten 6"><img src="K6.jpeg" alt="Kitten 6" loading="lazy"></a>
+    <a href="K7.jpeg" data-lightbox="nestje2026" data-title="Kitten 7"><img src="K7.jpeg" alt="Kitten 7" loading="lazy"></a>
+    <a href="W4.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4.jpeg" alt="Week 4" loading="lazy"></a>
+    <a href="W4-1.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4-1.jpeg" alt="Week 4" loading="lazy"></a>
+    <a href="W4-3.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4-3.jpeg" alt="Week 4" loading="lazy"></a>
+    <a href="W4-4.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4-4.jpeg" alt="Week 4" loading="lazy"></a>
+    <a href="Arya.jpeg" data-lightbox="nestje2026" data-title="Arya"><img src="Arya.jpeg" alt="Arya" loading="lazy"></a>
+    <a href="Bran.jpeg" data-lightbox="nestje2026" data-title="Bran"><img src="Bran.jpeg" alt="Bran" loading="lazy"></a>
+    <a href="Catelyn.jpeg" data-lightbox="nestje2026" data-title="Catelyn"><img src="Catelyn.jpeg" alt="Catelyn" loading="lazy"></a>
+    <a href="Lyanna.jpeg" data-lightbox="nestje2026" data-title="Lyanna"><img src="Lyanna.jpeg" alt="Lyanna" loading="lazy"></a>
+    <a href="Ned.jpeg" data-lightbox="nestje2026" data-title="Ned"><img src="Ned.jpeg" alt="Ned" loading="lazy"></a>
+    <a href="Silas Storm.jpeg" data-lightbox="nestje2026" data-title="Silas Storm"><img src="Silas Storm.jpeg" alt="Silas Storm" loading="lazy"></a>
+    <a href="Talisa.jpeg" data-lightbox="nestje2026" data-title="Talisa"><img src="Talisa.jpeg" alt="Talisa" loading="lazy"></a>
   </div>
 </div>
 
