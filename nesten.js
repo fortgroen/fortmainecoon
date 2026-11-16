@@ -3,7 +3,7 @@
    Dit ene bestand geldt voor ALLE talen (NL, EN, FR).
 
    NIEUWE FOTO TOEVOEGEN aan een bestaand nestje:
-     1. Zet de foto in de map  images/nestjes/<mapnaam van het nestje>/
+     1. Zet de foto in de map (naast index.html)
      2. Voeg onderaan de lijst "fotos" een regel toe:
           "bestandsnaam.jpeg",                  <- zonder bijschrift
         of met eigen bijschrift per taal:
@@ -16,7 +16,7 @@
 window.NESTEN = [
   {
     id: "nestje2026",
-    map: "images/nestjes/2026-sansa-x-master-yoda/",
+    map: "",
     titel: { nl: "Nestje 2026 — Sansa × Master Yoda", en: "Litter 2026 — Sansa × Master Yoda", fr: "Portée 2026 — Sansa × Master Yoda" },
     intro: { nl: "De eerste weken van ons eerste nestje.", en: "The first weeks of our first litter.", fr: "Les premières semaines de notre première portée." },
     fotos: [
