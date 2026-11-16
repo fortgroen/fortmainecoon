@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="nl">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fort Maine Coon — Maine Coon Cattery in Sint-Truiden</title>
-<meta name="description" content="Fort Maine Coon is een kleinschalige, gezinsgerichte Maine Coon cattery in Sint-Truiden. Gezonde, sociale en stamboomgekeurde kittens.">
-<link rel="icon" type="image/png" href="favicon.png">
+<meta name="description" content="Fort Maine Coon is a small, family-run Maine Coon cattery in Sint-Truiden, Belgium. Healthy, sociable kittens with official pedigrees.">
+<link rel="icon" type="image/png" href="../favicon.png">
+<link rel="alternate" hreflang="nl" href="https://fortmainecoon.be/">
+<link rel="alternate" hreflang="en" href="https://fortmainecoon.be/en/">
+<link rel="alternate" hreflang="fr" href="https://fortmainecoon.be/fr/">
+<link rel="alternate" hreflang="x-default" href="https://fortmainecoon.be/">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,875 +19,29 @@
 <link href="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/css/lightbox.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/lightbox2@2.11.4/dist/js/lightbox.min.js"></script>
 
-<style>
-/* ============ TOKENS ============ */
-:root{
-    --dark:#2f2a28;
-    --dark-soft:#433c39;
-    --cream:#faf8f6;
-    --card:#fffdfb;
-    --line:#e8e2dc;
-    --text:#333;
-    --muted:#766c64;
-    --gold:#8a6d3b;
-    --gold-light:#b08d56;
-    --radius:14px;
-    --shadow:0 10px 30px rgba(47,42,40,0.12);
-    --shadow-soft:0 6px 18px rgba(47,42,40,0.08);
-    --max:1080px;
-}
-
-*{box-sizing:border-box;}
-
-html{scroll-behavior:smooth;}
-
-body{
-    margin:0;
-    font-family:'Source Sans 3',Georgia,serif;
-    background:var(--cream);
-    color:var(--text);
-    line-height:1.7;
-    -webkit-font-smoothing:antialiased;
-}
-
-h1,h2,h3{
-    font-family:'Playfair Display',Georgia,serif;
-    color:var(--dark);
-    margin:0 0 .4em;
-    letter-spacing:.2px;
-}
-
-h2{
-    font-size:clamp(28px,3.2vw,36px);
-    font-weight:600;
-    text-align:center;
-    position:relative;
-    padding-bottom:22px;
-    margin-bottom:42px;
-}
-
-/* signature arc-rule, echoes the arc behind the cat in the crest */
-h2::after{
-    content:"";
-    position:absolute;
-    left:50%;
-    bottom:0;
-    width:70px;
-    height:14px;
-    transform:translateX(-50%);
-    border-bottom:2px solid var(--gold-light);
-    border-radius:50%;
-}
-
-h3{
-    font-size:22px;
-    font-weight:600;
-}
-
-a{color:var(--gold);}
-a:hover{color:var(--dark);}
-
-img{max-width:100%;}
-
-.eyebrow{
-    display:block;
-    text-align:center;
-    font-family:'Source Sans 3',sans-serif;
-    font-size:13px;
-    letter-spacing:2.5px;
-    text-transform:uppercase;
-    color:var(--gold);
-    font-weight:600;
-    margin-bottom:8px;
-}
-
-/* ============ HEADER / NAV ============ */
-.site-header{
-    background:var(--dark);
-    position:sticky;
-    top:0;
-    z-index:100;
-    box-shadow:0 2px 14px rgba(0,0,0,0.18);
-}
-
-.nav-wrap{
-    max-width:1240px;
-    margin:auto;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    padding:10px 24px;
-}
-
-.brand{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    text-decoration:none;
-    color:#fff;
-}
-
-.brand img{
-    height:46px;
-    width:auto;
-    filter:invert(1) brightness(1.6);
-}
-
-.brand-text{
-    display:flex;
-    flex-direction:column;
-    line-height:1.15;
-}
-
-.brand-text strong{
-    font-family:'Playfair Display',Georgia,serif;
-    font-size:19px;
-    font-weight:600;
-    letter-spacing:.5px;
-}
-
-.brand-text span{
-    font-size:10.5px;
-    letter-spacing:1.8px;
-    text-transform:uppercase;
-    color:var(--gold-light);
-}
-
-.hk-number{
-    font-size:10px !important;
-    letter-spacing:.8px !important;
-    text-transform:none !important;
-    color:rgba(255,255,255,0.6) !important;
-    font-family:'Source Sans 3',sans-serif;
-}
-
-nav.main-nav{
-    display:flex;
-    align-items:center;
-    gap:34px;
-}
-
-nav.main-nav a{
-    text-decoration:none;
-    color:#f1ece6;
-    font-family:'Source Sans 3',sans-serif;
-    font-weight:600;
-    font-size:14.5px;
-    letter-spacing:.3px;
-    position:relative;
-    padding:6px 0;
-}
-
-nav.main-nav a::after{
-    content:"";
-    position:absolute;
-    left:0;right:0;bottom:0;
-    height:2px;
-    background:var(--gold-light);
-    transform:scaleX(0);
-    transition:transform .25s ease;
-}
-
-nav.main-nav a:hover{color:#fff;}
-nav.main-nav a:hover::after{transform:scaleX(1);}
-
-.menu-toggle{
-    display:none;
-    background:none;
-    border:0;
-    color:#fff;
-    font-size:26px;
-    cursor:pointer;
-}
-
-@media(max-width:860px){
-    nav.main-nav{
-        position:absolute;
-        top:100%;
-        left:0;right:0;
-        background:var(--dark-soft);
-        flex-direction:column;
-        align-items:flex-start;
-        padding:10px 24px 18px;
-        gap:14px;
-        display:none;
-    }
-    nav.main-nav.open{display:flex;}
-    .menu-toggle{display:block;}
-    .site-header{position:sticky;}
-}
-
-/* ============ HERO SLIDESHOW ============ */
-.hero{
-    position:relative;
-    height:72vh;
-    min-height:430px;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.slide{
-    position:absolute;
-    inset:0;
-    background-size:cover;
-    background-position:center;
-    opacity:0;
-    transition:opacity 1.2s ease-in-out;
-    z-index:0;
-}
-
-.slide.active{
-    opacity:1;
-}
-
-.hero-overlay{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(180deg,rgba(20,17,15,.55) 0%,rgba(20,17,15,.35) 45%,rgba(20,17,15,.65) 100%);
-    z-index:1;
-}
-
-.hero-content{
-    position:relative;
-    z-index:2;
-    text-align:center;
-    color:#fff;
-    padding:0 24px;
-    max-width:760px;
-}
-
-.hero-content .eyebrow{color:var(--gold-light);}
-
-.hero-content h1{
-    color:#fff;
-    font-size:clamp(34px,5.4vw,56px);
-    font-weight:700;
-    margin-bottom:14px;
-    text-shadow:0 3px 18px rgba(0,0,0,.4);
-}
-
-.hero-content p{
-    font-size:18px;
-    color:#f1ece6;
-    margin-bottom:30px;
-    text-shadow:0 2px 10px rgba(0,0,0,.35);
-}
-
-/* Navigatiepuntjes */
-.slide-dots{
-    position:absolute;
-    bottom:22px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    gap:8px;
-    z-index:3;
-}
-
-.slide-dot{
-    width:8px;height:8px;
-    border-radius:50%;
-    background:rgba(255,255,255,0.45);
-    border:none;
-    cursor:pointer;
-    padding:0;
-    transition:background .3s ease, transform .3s ease;
-}
-
-.slide-dot.active{
-    background:#fff;
-    transform:scale(1.3);
-}
-
-.btn{
-    display:inline-block;
-    background:var(--gold);
-    color:#fff;
-    text-decoration:none;
-    padding:14px 32px;
-    border-radius:999px;
-    font-family:'Source Sans 3',sans-serif;
-    font-weight:600;
-    font-size:14.5px;
-    letter-spacing:.4px;
-    border:1px solid var(--gold);
-    transition:background .2s ease, color .2s ease, transform .2s ease;
-}
-
-.btn:hover{
-    background:transparent;
-    color:#fff;
-    transform:translateY(-2px);
-}
-
-.btn-outline{
-    background:transparent;
-    border:1px solid rgba(255,255,255,.7);
-}
-
-.btn-outline:hover{
-    background:#fff;
-    color:var(--dark);
-    border-color:#fff;
-}
-
-/* ============ SECTIONS ============ */
-section{
-    max-width:var(--max);
-    margin:auto;
-    padding:84px 24px;
-}
-
-section#over, section#kittens{
-    background:var(--card);
-}
-
-.lede{
-    text-align:center;
-    max-width:680px;
-    margin:-18px auto 40px;
-    color:var(--muted);
-    font-size:17px;
-}
-
-/* ============ SHOWCAT layout ============ */
-.showcat{
-    display:flex;
-    gap:48px;
-    align-items:flex-start;
-    flex-wrap:wrap;
-    margin-top:10px;
-}
-
-.showcat-img{
-    flex:0 0 320px;
-}
-
-.showcat-img img{
-    width:100%;
-    height:auto;
-    display:block;
-    border-radius:var(--radius);
-    box-shadow:var(--shadow);
-    border:6px solid #fff;
-}
-
-.showcat-info{
-    flex:1 1 300px;
-    min-width:250px;
-}
-
-.showcat-info h3{
-    margin-top:0;
-    font-size:30px;
-}
-
-.cat-details{
-    margin-top:15px;
-    line-height:1.9;
-    background:var(--cream);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:18px 22px;
-}
-
-/* Extra foto's galerij */
-.extra-photos{
-    display:flex;
-    gap:10px;
-    margin-top:22px;
-    flex-wrap:wrap;
-}
-
-.extra-photos img{
-    width:100px;
-    height:100px;
-    object-fit:cover;
-    border-radius:8px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    cursor:pointer;
-    transition: transform 0.25s ease, box-shadow .25s ease;
-}
-
-.extra-photos img:hover{
-    transform: scale(1.08);
-    box-shadow:0 10px 22px rgba(0,0,0,0.18);
-}
-
-@media(max-width:768px){
-    .showcat{
-        flex-direction:column;
-        align-items:center;
-    }
-    .showcat-img{
-        flex:0 0 auto;
-        width:80%;
-        margin-bottom:10px;
-    }
-    .showcat-info{
-        flex:1 1 auto;
-        text-align:center;
-    }
-    .cat-details{text-align:left;}
-}
-
-/* ============ KITTENS ============ */
-.kitten-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:28px;
-    margin-top:10px;
-}
-
-.kitten-card{
-    background:var(--cream);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:28px 26px;
-    box-shadow:var(--shadow-soft);
-}
-
-.kitten-card h3{
-    font-size:19px;
-    margin-bottom:14px;
-    color:var(--gold);
-}
-
-.kitten-card ul{
-    margin:0;
-    padding-left:18px;
-}
-
-.kitten-card li{margin-bottom:6px;}
-
-.litter-card{
-    grid-column:1/-1;
-    background:linear-gradient(135deg,#fff,#fbf6ef);
-    border:1px solid var(--line);
-}
-
-.color-tags{
-    display:flex;
-    flex-wrap:wrap;
-    gap:8px;
-    margin:14px 0 0;
-    padding:0;
-    list-style:none;
-}
-
-.color-tags li{
-    background:#fff;
-    border:1px solid var(--line);
-    border-radius:999px;
-    padding:5px 14px;
-    font-size:13.5px;
-    color:var(--dark);
-}
-
-@media(max-width:860px){
-    .kitten-grid{grid-template-columns:1fr;}
-}
-
-/* ============ KITTEN BIJ ONS ============ */
-.kitten-intro{
-    max-width:780px;
-    margin:0 auto 12px;
-    font-size:16px;
-    line-height:1.85;
-    color:var(--text);
-}
-
-.kitten-intro p{margin:0 0 16px;}
-.kitten-intro p:last-child{margin:0;}
-
-/* ============ KITTEN FOTOGALERIJ ============ */
-.kitten-gallery{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
-    gap:10px;
-    margin-top:10px;
-}
-
-.kitten-gallery img{
-    width:100%;
-    height:150px;
-    object-fit:cover;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    cursor:pointer;
-    display:block;
-    transition:transform .25s ease, box-shadow .25s ease;
-}
-
-.kitten-gallery img:hover{
-    transform:scale(1.05);
-    box-shadow:0 10px 22px rgba(0,0,0,0.18);
-}
-
-@media(max-width:600px){
-    .kitten-gallery{grid-template-columns:repeat(auto-fill,minmax(110px,1fr));}
-    .kitten-gallery img{height:110px;}
-}
-.updates-section{
-    margin-top:64px;
-}
-
-.updates-section > h3{
-    text-align:center;
-    font-size:24px;
-    margin-bottom:8px;
-}
-
-.updates-intro{
-    text-align:center;
-    color:var(--muted);
-    font-size:15px;
-    max-width:560px;
-    margin:0 auto 36px;
-}
-
-.updates-list{
-    display:flex;
-    flex-direction:column;
-    gap:34px;
-}
-
-.update-card{
-    background:var(--cream);
-    border:1px solid var(--line);
-    border-radius:var(--radius);
-    padding:30px 32px;
-    box-shadow:var(--shadow-soft);
-    position:relative;
-}
-
-.update-meta{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    margin-bottom:12px;
-    flex-wrap:wrap;
-}
-
-.update-date{
-    display:inline-block;
-    background:var(--gold);
-    color:#fff;
-    font-size:12.5px;
-    font-weight:600;
-    letter-spacing:.4px;
-    padding:5px 14px;
-    border-radius:999px;
-}
-
-.update-card h4{
-    font-family:'Playfair Display',Georgia,serif;
-    font-size:21px;
-    font-weight:600;
-    color:var(--dark);
-    margin:0;
-}
-
-.update-text{
-    color:var(--text);
-    margin:0 0 18px;
-}
-
-.update-photos{
-    display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(130px,1fr));
-    gap:10px;
-}
-
-.update-photos img{
-    width:100%;
-    height:130px;
-    object-fit:cover;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-    cursor:pointer;
-    display:block;
-    transition:transform .25s ease, box-shadow .25s ease;
-}
-
-.update-photos img:hover{
-    transform:scale(1.05);
-    box-shadow:0 10px 22px rgba(0,0,0,0.18);
-}
-
-.updates-empty{
-    text-align:center;
-    color:var(--muted);
-    font-style:italic;
-    padding:20px 0;
-}
-
-@media(max-width:600px){
-    .update-card{padding:24px 20px;}
-}
-
-/* ============ CONTACT ============ */
-.contact-grid{
-    display:grid;
-    grid-template-columns:1.1fr .9fr;
-    gap:56px;
-    align-items:start;
-    margin-top:10px;
-}
-
-.contact-info-card{
-    background:var(--dark);
-    color:#f1ece6;
-    border-radius:var(--radius);
-    padding:36px 32px;
-}
-
-.contact-info-card h3{color:#fff;}
-
-.contact-row{
-    display:flex;
-    align-items:flex-start;
-    gap:12px;
-    margin-bottom:18px;
-    font-size:15px;
-}
-
-.contact-row svg{flex:0 0 18px; margin-top:3px; color:var(--gold-light);}
-
-.contact-row a{color:#f1ece6;text-decoration:none;}
-.contact-row a:hover{color:var(--gold-light);}
-
-.social-row{
-    display:flex;
-    gap:14px;
-    margin-top:24px;
-}
-
-.social-row a{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    width:38px;height:38px;
-    border-radius:50%;
-    border:1px solid rgba(255,255,255,.35);
-    color:#fff;
-    text-decoration:none;
-}
-
-.social-row a:hover{
-    background:var(--gold);
-    border-color:var(--gold);
-}
-
-form{
-    display:flex;
-    flex-direction:column;
-    gap:18px;
-}
-
-form label{
-    font-size:13.5px;
-    font-weight:600;
-    letter-spacing:.3px;
-    text-transform:uppercase;
-    color:var(--muted);
-}
-
-form input,form textarea{
-    width:100%;
-    padding:13px 16px;
-    border:1px solid var(--line);
-    border-radius:10px;
-    font-family:'Source Sans 3',sans-serif;
-    font-size:15px;
-    background:#fff;
-    color:var(--text);
-}
-
-form input:focus,form textarea:focus{
-    outline:none;
-    border-color:var(--gold-light);
-    box-shadow:0 0 0 3px rgba(176,141,86,0.18);
-}
-
-form button{
-    align-self:flex-start;
-    background:var(--gold);
-    color:#fff;
-    border:none;
-    padding:14px 34px;
-    border-radius:999px;
-    font-weight:600;
-    font-size:14.5px;
-    letter-spacing:.4px;
-    cursor:pointer;
-    transition:background .2s ease, transform .2s ease;
-}
-
-form button:hover{
-    background:var(--dark);
-    transform:translateY(-2px);
-}
-
-@media(max-width:860px){
-    .contact-grid{grid-template-columns:1fr;}
-}
-
-/* ============ AANKONDIGINGSBANNER ============ */
-.announcement-bar{
-    background:linear-gradient(90deg,var(--gold) 0%,#a07c45 100%);
-    color:#fff;
-    text-align:center;
-    padding:12px 20px;
-    font-family:'Source Sans 3',sans-serif;
-    font-size:15px;
-    font-weight:600;
-    letter-spacing:.2px;
-}
-
-.announcement-bar a{
-    color:#fff;
-    text-decoration:underline;
-    text-underline-offset:3px;
-}
-
-.announcement-bar a:hover{
-    color:#fef3e2;
-}
-
-.announcement-bar .paw{
-    margin:0 6px;
-    font-size:17px;
-}
-
-/* hero badge */
-.hero-badge{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    background:rgba(255,255,255,0.15);
-    border:1px solid rgba(255,255,255,0.5);
-    backdrop-filter:blur(6px);
-    color:#fff;
-    font-family:'Source Sans 3',sans-serif;
-    font-size:13.5px;
-    font-weight:600;
-    letter-spacing:.5px;
-    padding:8px 18px;
-    border-radius:999px;
-    margin-bottom:20px;
-}
-
-.hero-badge .dot{
-    width:8px;height:8px;
-    background:#7ddb6e;
-    border-radius:50%;
-    box-shadow:0 0 0 3px rgba(125,219,110,0.35);
-    animation:pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse{
-    0%,100%{box-shadow:0 0 0 3px rgba(125,219,110,0.35);}
-    50%{box-shadow:0 0 0 6px rgba(125,219,110,0.15);}
-}
-
-footer{
-    background:var(--dark);
-    color:#d9d2ca;
-    padding:60px 24px 28px;
-    margin-top:0;
-}
-
-.footer-inner{
-    max-width:1080px;
-    margin:auto;
-    display:flex;
-    justify-content:space-between;
-    gap:40px;
-    flex-wrap:wrap;
-    text-align:left;
-}
-
-.footer-brand{
-    display:flex;
-    align-items:center;
-    gap:14px;
-    flex:1 1 260px;
-}
-
-.footer-brand img{
-    height:62px;
-    filter:invert(1) brightness(1.6);
-}
-
-.footer-brand strong{
-    display:block;
-    font-family:'Playfair Display',Georgia,serif;
-    color:#fff;
-    font-size:20px;
-}
-
-.footer-brand span{
-    font-size:13px;
-    color:#a89e94;
-}
-
-.footer-links{
-    flex:1 1 160px;
-}
-
-.footer-links h4{
-    color:#fff;
-    font-size:14px;
-    letter-spacing:1.2px;
-    text-transform:uppercase;
-    margin:0 0 14px;
-}
-
-.footer-links a{
-    display:block;
-    color:#d9d2ca;
-    text-decoration:none;
-    font-size:14.5px;
-    margin-bottom:10px;
-}
-
-.footer-links a:hover{color:var(--gold-light);}
-
-.footer-bottom{
-    max-width:1080px;
-    margin:42px auto 0;
-    padding-top:22px;
-    border-top:1px solid rgba(255,255,255,.12);
-    text-align:center;
-    font-size:13px;
-    color:#a89e94;
-}
-</style>
+<link rel="stylesheet" href="../css/style.css">
 </head>
-
 <body>
 
 <header class="site-header">
   <div class="nav-wrap">
     <a href="#" class="brand">
-      <img src="logo-icon.png" alt="Fort Maine Coon logo">
+      <img src="../images/logo/logo-icon.png" alt="Fort Maine Coon logo">
       <span class="brand-text">
         <strong>Fort Maine Coon</strong>
         <span>Official Cattery</span>
-        <span class="hk-number">Erkenning HK20708390</span>
+        <span class="hk-number">Approval HK20708390</span>
       </span>
     </a>
+    <div class="lang-switch" aria-label="Language"><a href="../" hreflang="nl" lang="nl">NL</a><a href="./" hreflang="en" lang="en" class="active">EN</a><a href="../fr/" hreflang="fr" lang="fr">FR</a></div>
     <button class="menu-toggle" id="menuToggle" aria-label="Menu" aria-expanded="false">&#9776;</button>
     <nav class="main-nav" id="mainNav">
-      <a href="#over">Over ons</a>
-      <a href="#visie">Onze visie</a>
-      <a href="#katten">Onze katten</a>
-      <a href="#kitten-bij-ons">Een kitten bij ons</a>
-      <a href="#actueel">Actueel</a>
-      <a href="#fotos">Foto's</a>
+      <a href="#over">About us</a>
+      <a href="#visie">Our vision</a>
+      <a href="#katten">Our cats</a>
+      <a href="#kitten-bij-ons">A kitten from us</a>
+      <a href="#actueel">News</a>
+      <a href="#fotos">Photos</a>
       <a href="#contact">Contact</a>
     </nav>
   </div>
@@ -891,77 +49,76 @@ footer{
 
 <div class="announcement-bar">
   <span class="paw">🐾</span>
-  Ons eerste nestje is vertrokken — volgend nestje gepland voor vroeg voorjaar 2027. <a href="#contact">Schrijf u in op de wachtlijst.</a>
+  Our first litter has gone to their new homes — our next litter is planned for early spring 2027. <a href="#contact">Join the waiting list.</a>
   <span class="paw">🐾</span>
 </div>
 
 <div class="hero" id="heroSlideshow">
-  <!-- Slideshow achtergronden -->
-  <div class="slide active" style="background-image:url('Sansa1.jpg')"></div>
-  <div class="slide" style="background-image:url('1.jpg')"></div>
-  <div class="slide" style="background-image:url('2.jpg')"></div>
-  <div class="slide" style="background-image:url('3.jpg')"></div>
-  <div class="slide" style="background-image:url('5.jpg')"></div>
-  <div class="slide" style="background-image:url('7.jpg')"></div>
+  <!-- Slideshow-achtergronden: foto's staan in images/sansa/ -->
+  <div class="slide active" style="background-image:url('../images/sansa/sansa-portret.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/header/week10-baksteen-1.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/sansa/sansa-1.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/header/week11-deur-1.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/sansa/sansa-2.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/header/week11-bank.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/sansa/sansa-3.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/sansa/sansa-5.jpg');background-position:center"></div>
+  <div class="slide" style="background-image:url('../images/sansa/sansa-7.jpg');background-position:center"></div>
 
-  <!-- Overlay -->
   <div class="hero-overlay"></div>
 
-  <!-- Inhoud -->
   <div class="hero-content">
     <div class="hero-badge">
       <span class="dot"></span>
-      Nestje vroeg voorjaar 2027 — wachtlijst open
+      Litter early spring 2027 — waiting list open
     </div>
-    <span class="eyebrow">Sint-Truiden · België</span>
+    <span class="eyebrow">Sint-Truiden · Belgium</span>
     <h1>Fort Maine Coon</h1>
-    <p>Passievolle, kleinschalige Maine Coon cattery op een authentieke vierkantshoeve</p>
-    <a href="#contact" class="btn">Schrijf u in op de wachtlijst</a>
+    <p>A passionate, small-scale Maine Coon cattery on an authentic traditional farmstead</p>
+    <a href="#contact" class="btn">Join the waiting list</a>
   </div>
 
-  <!-- Navigatiepuntjes -->
-  <div class="slide-dots" id="slideDots"></div>
+  <div class="slide-dots" id="slideDots" data-label="Photo"></div>
 </div>
 
 <section id="over">
-<span class="eyebrow">Wie wij zijn</span>
-<h2>Over onze cattery</h2>
-<p>Welkom bij Fort Maine Coon. Wij zijn een gezin waar passie voor dieren en zorg centraal staat — als dierenarts en leerkracht combineren wij professionele kennis met een warme, huiselijke omgeving.</p>
-<p>Omdat wij thuisonderwijs geven aan onze kinderen, is er vrijwel altijd iemand thuis. Onze katten en kittens groeien op als volwaardige gezinsleden, voortdurend omringd door aandacht, rust en dagelijkse interactie.</p>
+<span class="eyebrow">Who we are</span>
+<h2>About our cattery</h2>
+<p>Welcome to Fort Maine Coon. We are a family for whom passion for animals and care come first — as a veterinarian and a teacher, we combine professional knowledge with a warm, homely environment.</p>
+<p>Because we homeschool our children, there is almost always someone at home. Our cats and kittens grow up as full members of the family, constantly surrounded by attention, calm and daily interaction.</p>
 </section>
 
 <section id="visie">
-<span class="eyebrow">Onze aanpak</span>
-<h2>Onze levensstijl en visie</h2>
-<p>Bij Fort Maine Coon geloven wij in een verantwoorde en doordachte manier van fokken, waarbij gezondheid, welzijn en rastype centraal staan.</p>
-<p>Onze katten hebben toegang tot de beschutte binnenkoer van de hoeve, waardoor ze op een veilige manier buitenprikkels kunnen ervaren. Deze omgeving, gecombineerd met een rustige en traditionele levensstijl, draagt bij aan hun evenwichtige en nieuwsgierige karakter.</p>
-<p>Wij kiezen bewust voor een kleinschalige cattery, zodat elke kat en elk nest de tijd, aandacht en zorg krijgt die het verdient. Voor ons zijn onze katten in de eerste plaats geliefde huisdieren, en hun welzijn staat altijd voorop.</p>
+<span class="eyebrow">Our approach</span>
+<h2>Our lifestyle and vision</h2>
+<p>At Fort Maine Coon we believe in responsible, well-considered breeding, with health, welfare and breed type at the centre.</p>
+<p>Our cats have access to the sheltered inner courtyard of the farm, so they can experience the outdoors safely. This environment, combined with a calm and traditional way of life, contributes to their balanced and curious character.</p>
+<p>We deliberately keep our cattery small, so that every cat and every litter gets the time, attention and care it deserves. To us, our cats are first and foremost beloved pets, and their welfare always comes first.</p>
 </section>
 
 <section id="katten">
-<span class="eyebrow">Maak kennis</span>
-<h2>Onze katten</h2>
+<span class="eyebrow">Meet our cats</span>
+<h2>Our cats</h2>
 
 <div class="showcat">
   <div class="showcat-img">
-    <img src="Sansa1.jpg" alt="Sansa, Maine Coon van Fort Maine Coon">
+    <img src="../images/sansa/sansa-portret.jpg" alt="Sansa, Maine Coon at Fort Maine Coon">
   </div>
   <div class="showcat-info">
     <h3>Sansa</h3>
     <div class="cat-details">
-      <strong>Ras:</strong> Maine Coon<br>
-      <strong>Kleur:</strong> black smoke &amp; white bicolor<br>
-      <strong>Geboortedatum:</strong> 2025<br>
-      <strong>Stamboom:</strong> <a href="https://www.pawpeds.com/db/?a=p&id=1805403&g=4&p=mco&o=elastic" target="_blank">Pawpeds</a>
+      <strong>Breed:</strong> Maine Coon<br>
+      <strong>Colour:</strong> black smoke &amp; white bicolour<br>
+      <strong>Date of birth:</strong> 2025<br>
+      <strong>Pedigree:</strong> <a href="https://www.pawpeds.com/db/?a=p&amp;id=1805403&amp;g=4&amp;p=mco&amp;o=elastic" target="_blank" rel="noopener">Pawpeds</a>
     </div>
 
-    <!-- Extra foto's galerij klikbaar -->
     <div class="extra-photos">
-      <a href="1.jpg" data-lightbox="katten" data-title="Extra foto 1"><img src="1.jpg" alt="Extra foto 1"></a>
-      <a href="2.jpg" data-lightbox="katten" data-title="Extra foto 2"><img src="2.jpg" alt="Extra foto 2"></a>
-      <a href="3.jpg" data-lightbox="katten" data-title="Extra foto 3"><img src="3.jpg" alt="Extra foto 3"></a>
-      <a href="5.jpg" data-lightbox="katten" data-title="Extra foto 4"><img src="5.jpg" alt="Extra foto 4"></a>
-      <a href="7.jpg" data-lightbox="katten" data-title="Extra foto 5"><img src="7.jpg" alt="Extra foto 5"></a>
+      <a href="../images/sansa/sansa-1.jpg" data-lightbox="katten" data-title="Extra photo 1"><img src="../images/sansa/sansa-1.jpg" alt="Extra photo 1"></a>
+      <a href="../images/sansa/sansa-2.jpg" data-lightbox="katten" data-title="Extra photo 2"><img src="../images/sansa/sansa-2.jpg" alt="Extra photo 2"></a>
+      <a href="../images/sansa/sansa-3.jpg" data-lightbox="katten" data-title="Extra photo 3"><img src="../images/sansa/sansa-3.jpg" alt="Extra photo 3"></a>
+      <a href="../images/sansa/sansa-5.jpg" data-lightbox="katten" data-title="Extra photo 4"><img src="../images/sansa/sansa-5.jpg" alt="Extra photo 4"></a>
+      <a href="../images/sansa/sansa-7.jpg" data-lightbox="katten" data-title="Extra photo 5"><img src="../images/sansa/sansa-7.jpg" alt="Extra photo 5"></a>
     </div>
   </div>
 </div>
@@ -969,109 +126,82 @@ footer{
 
 <!-- EEN KITTEN BIJ ONS — altijd zichtbaar -->
 <section id="kitten-bij-ons" style="background:var(--card);">
-<span class="eyebrow">Wat u mag verwachten</span>
-<h2>Een kitten bij ons</h2>
+<span class="eyebrow">What to expect</span>
+<h2>A kitten from us</h2>
 
-<p class="lede">Een kitten van Fort Maine Coon is meer dan een aankoop — het is het begin van een bijzondere band met een dier dat opgroeide in het hart van ons gezin.</p>
+<p class="lede">A kitten from Fort Maine Coon is more than a purchase — it is the start of a special bond with an animal that grew up at the heart of our family.</p>
 
 <div class="kitten-intro">
-  <p>Onze kittens leren van jongs af aan omgaan met mensen, kinderen en dagelijkse situaties — de basis voor de sociale, stabiele karakters waarvoor de Maine Coon bekend staat. Elk kitten vertrekt pas wanneer het daar klaar voor is: minimaal 12 weken oud, gevaccineerd, ontwormd en met officiële stamboom.</p>
-  <p>Wij plannen altijd een persoonlijk kennismakingsbezoek voor de overdracht, zodat u uw kitten leert kennen in zijn vertrouwde omgeving en wij u goed kunnen begeleiden bij de overgang naar het nieuwe thuis.</p>
+  <p>From a young age our kittens get used to people, children and everyday situations — the foundation of the sociable, stable character the Maine Coon is known for. Each kitten leaves only when it is ready: at least 12 weeks old, vaccinated, dewormed and with an official pedigree.</p>
+  <p>We always arrange a personal visit before the handover, so you can get to know your kitten in its familiar surroundings and we can guide you through the move to its new home.</p>
 </div>
 
 <div class="kitten-grid" style="margin-top:48px;">
 
   <div class="kitten-card">
-    <h3>Wat u kunt verwachten</h3>
+    <h3>What you can expect</h3>
     <ul>
-      <li>Met officiële stamboom (BCF)</li>
-      <li>Gechipt</li>
-      <li>Correct gevaccineerd</li>
-      <li>Meerdere keren ontwormd</li>
-      <li>Met gezondheidscontrole door de dierenarts</li>
+      <li>With official pedigree (BCF)</li>
+      <li>Microchipped</li>
+      <li>Properly vaccinated</li>
+      <li>Dewormed several times</li>
+      <li>Health check by the veterinarian</li>
     </ul>
   </div>
 
   <div class="kitten-card">
-    <h3>Waarom wij werken met stambomen</h3>
-    <p>Al onze kittens worden verkocht met een officiële stamboom van de BCF (Belgian Cat Fanciers). Dit is voor ons geen formaliteit — het is een bewuste keuze met verregaande gevolgen.</p>
-    <p style="margin:0;">Door stambomen aan te vragen bij een erkende stamboekvereniging zijn wij verplicht een goedgekeurd fokprogramma te volgen. Dat betekent strikte regels rond gezondheidsonderzoeken, inteeltbeperking, minimumleeftijd bij overdracht en welzijn van de dieren. Een stamboom is dus niet alleen een bewijs van afstamming — het is een garantie dat uw kitten gefokt werd binnen een kader van transparantie en verantwoordelijkheid.</p>
+    <h3>Why we work with pedigrees</h3>
+    <p>All our kittens are sold with an official pedigree from the BCF (Belgian Cat Fanciers). To us this is no formality — it is a deliberate choice with far-reaching consequences.</p>
+    <p style="margin:0;">By requesting pedigrees from a recognised studbook association, we are obliged to follow an approved breeding programme. This means strict rules on health screening, limiting inbreeding, minimum age at handover and animal welfare. A pedigree is therefore not just proof of ancestry — it is a guarantee that your kitten was bred within a framework of transparency and responsibility.</p>
   </div>
 
   <div class="kitten-card">
-    <h3>Persoonlijk contact</h3>
-    <p style="margin:0;">Wij staan altijd open voor vragen — voor, tijdens en na de overdracht. U bent altijd welkom om uw kitten te komen bezoeken voor de overdracht, en wij volgen graag mee hoe uw Maine Coon opgroeit in zijn nieuwe thuis.</p>
+    <h3>Personal contact</h3>
+    <p style="margin:0;">We are always open to questions — before, during and after the handover. You are always welcome to visit your kitten before the handover, and we love to follow how your Maine Coon grows up in its new home.</p>
   </div>
 
 </div>
 </section>
 
-<!-- ACTUEEL — pas deze sectie aan per fase -->
+<!-- ACTUEEL — pas deze sectie aan per fase (in elke taal) -->
 <section id="actueel">
-<span class="eyebrow">Actueel</span>
-<h2>Actueel</h2>
+<span class="eyebrow">Latest</span>
+<h2>News</h2>
 <div class="kitten-grid">
 
   <div class="kitten-card litter-card" style="grid-column:1/-1;">
-    <h3>Ons eerste nestje is vertrokken 🐾</h3>
-    <p>Alle zeven kittens van ons eerste nestje (Sansa × <a href="https://www.cattocattery.com/male-cats" target="_blank">Master Yoda of Whitfreynick</a>, geboren 27 juni 2026) zijn inmiddels naar hun nieuwe thuis vertrokken. We zijn ontzettend blij met de mooie families die ze hebben gekregen!</p>
-    <p>Bekijk de foto's van hun eerste weken <a href="#fotos">hier</a>.</p>
+    <h3>Our first litter has left 🐾</h3>
+    <p>All seven kittens of our first litter (Sansa × <a href="https://www.cattocattery.com/male-cats" target="_blank" rel="noopener">Master Yoda of Whitfreynick</a>, born 27 June 2026) have now gone to their new homes. We are so happy with the lovely families they have found!</p>
+    <p>See the photos of their first weeks <a href="#fotos">here</a>.</p>
   </div>
 
   <div class="kitten-card" style="grid-column:1/-1; text-align:center;">
-    <h3>Volgend nestje — vroeg voorjaar 2027</h3>
-    <p style="margin-bottom:18px;">Wij plannen ons volgend nestje voor het <strong>vroege voorjaar 2027</strong>. Schrijf u alvast in op de wachtlijst — wij nemen zo snel mogelijk contact op.</p>
-    <a href="#contact" class="btn" style="background:var(--gold);color:#fff;padding:13px 30px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;">Schrijf u in op de wachtlijst</a>
+    <h3>Next litter — early spring 2027</h3>
+    <p style="margin-bottom:18px;">We are planning our next litter for <strong>early spring 2027</strong>. Join the waiting list now — we will contact you as soon as possible.</p>
+    <a href="#contact" class="btn" style="background:var(--gold);color:#fff;padding:13px 30px;border-radius:999px;text-decoration:none;font-weight:600;font-size:14.5px;">Join the waiting list</a>
   </div>
 
 </div>
 </section>
 
-<!-- FOTO'S — groeit mee na elk nestje -->
+<!-- FOTO'S — de galerijen worden opgebouwd uit js/nesten.js -->
 <section id="fotos" style="background:var(--card);">
-<span class="eyebrow">Terugblik</span>
-<h2>Foto's</h2>
-
-<div class="updates-section" style="margin-top:0;">
-  <h3>Nestje 2026 — Sansa × Master Yoda</h3>
-  <p class="updates-intro">De eerste weken van ons eerste nestje.</p>
-  <div class="kitten-gallery">
-    <a href="kittens-geboorte-1.jpg" data-lightbox="nestje2026" data-title="De kittens zijn geboren!"><img src="kittens-geboorte-1.jpg" alt="Geboorte" loading="lazy"></a>
-    <a href="Sansa (2).jpeg" data-lightbox="nestje2026" data-title="Week 2"><img src="Sansa (2).jpeg" alt="Week 2" loading="lazy"></a>
-    <a href="K1.jpeg" data-lightbox="nestje2026" data-title="Kitten 1"><img src="K1.jpeg" alt="Kitten 1" loading="lazy"></a>
-    <a href="K2.jpeg" data-lightbox="nestje2026" data-title="Kitten 2"><img src="K2.jpeg" alt="Kitten 2" loading="lazy"></a>
-    <a href="K3.jpeg" data-lightbox="nestje2026" data-title="Kitten 3"><img src="K3.jpeg" alt="Kitten 3" loading="lazy"></a>
-    <a href="K4.jpeg" data-lightbox="nestje2026" data-title="Kitten 4"><img src="K4.jpeg" alt="Kitten 4" loading="lazy"></a>
-    <a href="K5.jpeg" data-lightbox="nestje2026" data-title="Kitten 5"><img src="K5.jpeg" alt="Kitten 5" loading="lazy"></a>
-    <a href="K6.jpeg" data-lightbox="nestje2026" data-title="Kitten 6"><img src="K6.jpeg" alt="Kitten 6" loading="lazy"></a>
-    <a href="K7.jpeg" data-lightbox="nestje2026" data-title="Kitten 7"><img src="K7.jpeg" alt="Kitten 7" loading="lazy"></a>
-    <a href="W4.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4.jpeg" alt="Week 4" loading="lazy"></a>
-    <a href="W4-1.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4-1.jpeg" alt="Week 4" loading="lazy"></a>
-    <a href="W4-3.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4-3.jpeg" alt="Week 4" loading="lazy"></a>
-    <a href="W4-4.jpeg" data-lightbox="nestje2026" data-title="Week 4"><img src="W4-4.jpeg" alt="Week 4" loading="lazy"></a>
-    <a href="Arya.jpeg" data-lightbox="nestje2026" data-title="Arya"><img src="Arya.jpeg" alt="Arya" loading="lazy"></a>
-    <a href="Bran.jpeg" data-lightbox="nestje2026" data-title="Bran"><img src="Bran.jpeg" alt="Bran" loading="lazy"></a>
-    <a href="Catelyn.jpeg" data-lightbox="nestje2026" data-title="Catelyn"><img src="Catelyn.jpeg" alt="Catelyn" loading="lazy"></a>
-    <a href="Lyanna.jpeg" data-lightbox="nestje2026" data-title="Lyanna"><img src="Lyanna.jpeg" alt="Lyanna" loading="lazy"></a>
-    <a href="Ned.jpeg" data-lightbox="nestje2026" data-title="Ned"><img src="Ned.jpeg" alt="Ned" loading="lazy"></a>
-    <a href="Silas Storm.jpeg" data-lightbox="nestje2026" data-title="Silas Storm"><img src="Silas Storm.jpeg" alt="Silas Storm" loading="lazy"></a>
-    <a href="Talisa.jpeg" data-lightbox="nestje2026" data-title="Talisa"><img src="Talisa.jpeg" alt="Talisa" loading="lazy"></a>
-  </div>
-</div>
-
+<span class="eyebrow">Looking back</span>
+<h2>Photos</h2>
+<div id="nestenGalerij"></div>
 </section>
 
 <section id="contact">
-<span class="eyebrow">Wij horen graag van u</span>
+<span class="eyebrow">We'd love to hear from you</span>
 <h2>Contact</h2>
-<p class="lede">Heeft u interesse in een kitten van Fort Maine Coon? Contacteer ons persoonlijk of vul onderstaand formulier in om op de wachtlijst te staan. We nemen zo snel mogelijk contact met u op.</p>
+<p class="lede">Interested in a kitten from Fort Maine Coon? Contact us personally or fill in the form below to join the waiting list. We will get back to you as soon as possible.</p>
 
 <div class="contact-grid">
 
   <form action="https://formspree.io/f/mkoqqjgw" method="POST">
-       <input type="hidden" name="_subject" value="Nieuw bericht via Fort Maine Coon">
+    <input type="hidden" name="_subject" value="New message via Fort Maine Coon (EN)">
     <div>
-      <label for="naam">Naam</label>
+      <label for="naam">Name</label>
       <input type="text" id="naam" name="naam" required>
     </div>
     <div>
@@ -1079,16 +209,16 @@ footer{
       <input type="email" id="email" name="email" required>
     </div>
     <div>
-      <label for="bericht">Bericht</label>
+      <label for="bericht">Message</label>
       <textarea id="bericht" name="bericht" rows="5"></textarea>
     </div>
-    <button type="submit">Verstuur</button>
+    <button type="submit">Send</button>
   </form>
 
   <div class="contact-info-card">
-    <h3>Contactgegevens</h3>
+    <h3>Contact details</h3>
     <div class="contact-row">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z" opacity="0"/><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 5h18v14H3z"/><path d="m3 6 9 7 9-7"/></svg>
       <a href="mailto:contact.fortgroen@gmail.com">contact.fortgroen@gmail.com</a>
     </div>
     <div class="contact-row">
@@ -1097,15 +227,11 @@ footer{
     </div>
     <div class="contact-row">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-      <span>Sint-Truiden, België</span>
+      <span>Sint-Truiden, Belgium</span>
     </div>
     <div class="social-row">
-      <a href="https://www.facebook.com/profile.php?id=61579093524869" target="_blank" aria-label="Facebook">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg>
-      </a>
-      <a href="https://www.instagram.com/fortmainecoon/" target="_blank" aria-label="Instagram">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
-      </a>
+      <a href="https://www.facebook.com/profile.php?id=61579093524869" target="_blank" rel="noopener" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.9v-7H7.9V12h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6V12h2.8l-.4 2.9h-2.4v7A10 10 0 0 0 22 12z"/></svg></a>
+      <a href="https://www.instagram.com/fortmainecoon/" target="_blank" rel="noopener" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
     </div>
   </div>
 
@@ -1115,152 +241,36 @@ footer{
 <footer>
   <div class="footer-inner">
     <div class="footer-brand">
-      <img src="logo-icon.png" alt="Fort Maine Coon logo">
+      <img src="../images/logo/logo-icon.png" alt="Fort Maine Coon logo">
       <div>
         <strong>Fort Maine Coon</strong>
         <span>Official Cattery · Sint-Truiden</span>
       </div>
     </div>
     <div class="footer-links">
-      <h4>Navigatie</h4>
-      <a href="#over">Over ons</a>
-      <a href="#visie">Onze visie</a>
-      <a href="#katten">Onze katten</a>
-      <a href="#kittens">Kittens</a>
+      <h4>Navigation</h4>
+      <a href="#over">About us</a>
+      <a href="#visie">Our vision</a>
+      <a href="#katten">Our cats</a>
+      <a href="#kitten-bij-ons">A kitten from us</a>
       <a href="#contact">Contact</a>
     </div>
     <div class="footer-links">
       <h4>Contact</h4>
       <a href="mailto:contact.fortgroen@gmail.com">contact.fortgroen@gmail.com</a>
       <a href="tel:+32484850516">+32 484 85 05 16</a>
-      <a href="https://www.facebook.com/profile.php?id=61579093524869" target="_blank">Facebook</a>
-      <a href="https://www.instagram.com/fortmainecoon/" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=61579093524869" target="_blank" rel="noopener">Facebook</a>
+      <a href="https://www.instagram.com/fortmainecoon/" target="_blank" rel="noopener">Instagram</a>
     </div>
   </div>
   <div class="footer-bottom">
-    © 2026 Fort Maine Coon — Sint-Truiden, België
+    © 2026 Fort Maine Coon — Sint-Truiden, Belgium
   </div>
 </footer>
 
-<script>
-const menuToggle = document.getElementById('menuToggle');
-const mainNav = document.getElementById('mainNav');
-menuToggle.addEventListener('click', () => {
-  const isOpen = mainNav.classList.toggle('open');
-  menuToggle.setAttribute('aria-expanded', isOpen);
-});
-mainNav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    mainNav.classList.remove('open');
-    menuToggle.setAttribute('aria-expanded', false);
-  });
-});
-
-/* ============ SLIDESHOW ============ */
-const slides = document.querySelectorAll('.slide');
-const dotsContainer = document.getElementById('slideDots');
-let current = 0;
-let timer;
-
-// Maak navigatiepuntjes aan
-slides.forEach((_, i) => {
-  const dot = document.createElement('button');
-  dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
-  dot.setAttribute('aria-label', 'Foto ' + (i + 1));
-  dot.addEventListener('click', () => goTo(i));
-  dotsContainer.appendChild(dot);
-});
-
-function goTo(n){
-  slides[current].classList.remove('active');
-  dotsContainer.children[current].classList.remove('active');
-  current = (n + slides.length) % slides.length;
-  slides[current].classList.add('active');
-  dotsContainer.children[current].classList.add('active');
-}
-
-function next(){ goTo(current + 1); }
-
-function startTimer(){ timer = setInterval(next, 5000); }
-function resetTimer(){ clearInterval(timer); startTimer(); }
-
-startTimer();
-
-// Pauzeer bij hover
-document.getElementById('heroSlideshow').addEventListener('mouseenter', () => clearInterval(timer));
-document.getElementById('heroSlideshow').addEventListener('mouseleave', startTimer);
-</script>
-
-<!-- ========================================================================
-     KITTEN-UPDATES — DIT IS HET ENIGE GEDEELTE DAT U MOET AANPASSEN
-     ========================================================================
-     Hieronder staat een lijstje van updates. Om een nieuwe update toe te
-     voegen, kopieer je gewoon één van de { ... } blokken hieronder, plak je
-     hem bovenaan de lijst (vlak na "const KITTEN_UPDATES = [") en pas je de
-     gegevens aan. De website doet de rest: opmaak, volgorde en foto-overzicht
-     gebeuren automatisch.
-
-     Let op bij het invullen:
-     - date:   de datum die getoond wordt, bv. "3 juli 2026"
-     - title:  een korte titel, bv. "De kittens zijn geboren!"
-     - text:   een kort stukje tekst (mag leeg blijven: "")
-     - photos: een lijstje van bestandsnamen tussen vierkante haken,
-               gescheiden door een komma. Zet de foto's gewoon in dezelfde
-               map als index.html en typ hier de bestandsnaam.
-
-     De BOVENSTE update in de lijst verschijnt als eerste (nieuwste boven).
-     ======================================================================== -->
-<script>
-const KITTEN_UPDATES = [
-  {
-    date: "27 juli 2026",
-    title: "Week 4 — socialisatie gestart!",
-    text: "De kittens zijn nu 4 weken oud en we zijn stilletjes aan begonnen met de socialisatie. Ze ontdekken hun omgeving, spelen met elkaar en beginnen goed te eten. Mama Sansa doet het ook uitstekend!",
-    photos: ["W4.jpeg","W4-1.jpeg","W4-3.jpeg","W4-4.jpeg","Arya.jpeg","Bran.jpeg","Catelyn.jpeg","Lyanna.jpeg","Ned.jpeg","Silas Storm.jpeg","Talisa.jpeg"]
-  },
-  {
-    date: "10 juli 2026",
-    title: "Week 2 — de oogjes gaan open!",
-    text: "Onze 7 haarbolletjes zijn aan het groeien, en recent zijn hun oogjes open gegaan! We houden hun gewichtcurve nauwlettend in de gate; alles gaat prima en de mama doet het ook nog steeds goed!",
-    photos: ["Sansa (2).jpeg","K1.jpeg","K2.jpeg","K3.jpeg","K4.jpeg","K5.jpeg","K6.jpeg","K7.jpeg"]
-  },
-  {
-    date: "1 juli 2026",
-    title: "De kittens zijn geboren!",
-    text: "Sansa beviel op 27 juni van wel zeven gezonde kittens. Iedereen maakt het goed!",
-    photos: ["kittens-geboorte-1.jpg"]
-  },
-];
-
-function renderKittenUpdates(){
-  const list = document.getElementById('updatesList');
-  if(!KITTEN_UPDATES.length){
-    list.innerHTML = '<p class="updates-empty">Er zijn nog geen updates — zodra de kittens er zijn, verschijnt hier het laatste nieuws.</p>';
-    return;
-  }
-
-  list.innerHTML = KITTEN_UPDATES.map((update, i) => {
-    const photosHtml = (update.photos || []).map((src, j) => `
-      <a href="${src}" data-lightbox="update-${i}" data-title="${update.title} — foto ${j+1}">
-        <img src="${src}" alt="${update.title} — foto ${j+1}" loading="lazy">
-      </a>
-    `).join('');
-
-    return `
-      <article class="update-card">
-        <div class="update-meta">
-          <span class="update-date">${update.date}</span>
-          <h4>${update.title}</h4>
-        </div>
-        ${update.text ? `<p class="update-text">${update.text}</p>` : ''}
-        ${photosHtml ? `<div class="update-photos">${photosHtml}</div>` : ''}
-      </article>
-    `;
-  }).join('');
-}
-
-renderKittenUpdates();
-</script>
+<script>window.SITE_ROOT = "../";</script>
+<script src="../js/nesten.js"></script>
+<script src="../js/site.js"></script>
 
 </body>
 </html>
